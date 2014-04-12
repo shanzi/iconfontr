@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52EE318B18F97E7D00E27B86 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE318A18F97E7D00E27B86 /* Cocoa.framework */; };
+		52EE319518F97E7D00E27B86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319318F97E7D00E27B86 /* InfoPlist.strings */; };
+		52EE319718F97E7D00E27B86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319618F97E7D00E27B86 /* main.m */; };
+		52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319918F97E7D00E27B86 /* Credits.rtf */; };
+		52EE319E18F97E7D00E27B86 /* IFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319D18F97E7D00E27B86 /* IFDocument.m */; };
+		52EE31A118F97E7D00E27B86 /* IFDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319F18F97E7D00E27B86 /* IFDocument.xib */; };
+		52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A218F97E7D00E27B86 /* MainMenu.xib */; };
+		52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A518F97E7D00E27B86 /* Images.xcassets */; };
+		52EE31AD18F97E7E00E27B86 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE31AC18F97E7E00E27B86 /* XCTest.framework */; };
+		52EE31AE18F97E7E00E27B86 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE318A18F97E7D00E27B86 /* Cocoa.framework */; };
+		52EE31B618F97E7E00E27B86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31B418F97E7E00E27B86 /* InfoPlist.strings */; };
+		52EE31B818F97E7E00E27B86 /* iconfontrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31B718F97E7E00E27B86 /* iconfontrTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52EE31AF18F97E7E00E27B86 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52EE317F18F97E7D00E27B86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52EE318618F97E7D00E27B86;
+			remoteInfo = iconfontr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		52EE318718F97E7D00E27B86 /* iconfontr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconfontr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EE318A18F97E7D00E27B86 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		52EE318D18F97E7D00E27B86 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		52EE318E18F97E7D00E27B86 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		52EE318F18F97E7D00E27B86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		52EE319218F97E7D00E27B86 /* iconfontr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iconfontr-Info.plist"; sourceTree = "<group>"; };
+		52EE319418F97E7D00E27B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52EE319618F97E7D00E27B86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52EE319818F97E7D00E27B86 /* iconfontr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iconfontr-Prefix.pch"; sourceTree = "<group>"; };
+		52EE319A18F97E7D00E27B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		52EE319C18F97E7D00E27B86 /* IFDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFDocument.h; sourceTree = "<group>"; };
+		52EE319D18F97E7D00E27B86 /* IFDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFDocument.m; sourceTree = "<group>"; };
+		52EE31A018F97E7D00E27B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IFDocument.xib; sourceTree = "<group>"; };
+		52EE31A318F97E7D00E27B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		52EE31A518F97E7D00E27B86 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		52EE31AB18F97E7E00E27B86 /* iconfontrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iconfontrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52EE31AC18F97E7E00E27B86 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		52EE31B318F97E7E00E27B86 /* iconfontrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iconfontrTests-Info.plist"; sourceTree = "<group>"; };
+		52EE31B518F97E7E00E27B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52EE31B718F97E7E00E27B86 /* iconfontrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iconfontrTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52EE318418F97E7D00E27B86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EE318B18F97E7D00E27B86 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EE31A818F97E7E00E27B86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EE31AE18F97E7E00E27B86 /* Cocoa.framework in Frameworks */,
+				52EE31AD18F97E7E00E27B86 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52EE317E18F97E7D00E27B86 = {
+			isa = PBXGroup;
+			children = (
+				52EE319018F97E7D00E27B86 /* iconfontr */,
+				52EE31B118F97E7E00E27B86 /* iconfontrTests */,
+				52EE318918F97E7D00E27B86 /* Frameworks */,
+				52EE318818F97E7D00E27B86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52EE318818F97E7D00E27B86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52EE318718F97E7D00E27B86 /* iconfontr.app */,
+				52EE31AB18F97E7E00E27B86 /* iconfontrTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52EE318918F97E7D00E27B86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52EE318A18F97E7D00E27B86 /* Cocoa.framework */,
+				52EE31AC18F97E7E00E27B86 /* XCTest.framework */,
+				52EE318C18F97E7D00E27B86 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52EE318C18F97E7D00E27B86 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52EE318D18F97E7D00E27B86 /* AppKit.framework */,
+				52EE318E18F97E7D00E27B86 /* CoreData.framework */,
+				52EE318F18F97E7D00E27B86 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		52EE319018F97E7D00E27B86 /* iconfontr */ = {
+			isa = PBXGroup;
+			children = (
+				52EE319C18F97E7D00E27B86 /* IFDocument.h */,
+				52EE319D18F97E7D00E27B86 /* IFDocument.m */,
+				52EE319F18F97E7D00E27B86 /* IFDocument.xib */,
+				52EE31A218F97E7D00E27B86 /* MainMenu.xib */,
+				52EE31A518F97E7D00E27B86 /* Images.xcassets */,
+				52EE319118F97E7D00E27B86 /* Supporting Files */,
+			);
+			path = iconfontr;
+			sourceTree = "<group>";
+		};
+		52EE319118F97E7D00E27B86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52EE319218F97E7D00E27B86 /* iconfontr-Info.plist */,
+				52EE319318F97E7D00E27B86 /* InfoPlist.strings */,
+				52EE319618F97E7D00E27B86 /* main.m */,
+				52EE319818F97E7D00E27B86 /* iconfontr-Prefix.pch */,
+				52EE319918F97E7D00E27B86 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52EE31B118F97E7E00E27B86 /* iconfontrTests */ = {
+			isa = PBXGroup;
+			children = (
+				52EE31B718F97E7E00E27B86 /* iconfontrTests.m */,
+				52EE31B218F97E7E00E27B86 /* Supporting Files */,
+			);
+			path = iconfontrTests;
+			sourceTree = "<group>";
+		};
+		52EE31B218F97E7E00E27B86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52EE31B318F97E7E00E27B86 /* iconfontrTests-Info.plist */,
+				52EE31B418F97E7E00E27B86 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52EE318618F97E7D00E27B86 /* iconfontr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EE31BB18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontr" */;
+			buildPhases = (
+				52EE318318F97E7D00E27B86 /* Sources */,
+				52EE318418F97E7D00E27B86 /* Frameworks */,
+				52EE318518F97E7D00E27B86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iconfontr;
+			productName = iconfontr;
+			productReference = 52EE318718F97E7D00E27B86 /* iconfontr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52EE31AA18F97E7E00E27B86 /* iconfontrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52EE31BE18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontrTests" */;
+			buildPhases = (
+				52EE31A718F97E7E00E27B86 /* Sources */,
+				52EE31A818F97E7E00E27B86 /* Frameworks */,
+				52EE31A918F97E7E00E27B86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52EE31B018F97E7E00E27B86 /* PBXTargetDependency */,
+			);
+			name = iconfontrTests;
+			productName = iconfontrTests;
+			productReference = 52EE31AB18F97E7E00E27B86 /* iconfontrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52EE317F18F97E7D00E27B86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "io-meter";
+				TargetAttributes = {
+					52EE31AA18F97E7E00E27B86 = {
+						TestTargetID = 52EE318618F97E7D00E27B86;
+					};
+				};
+			};
+			buildConfigurationList = 52EE318218F97E7D00E27B86 /* Build configuration list for PBXProject "iconfontr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52EE317E18F97E7D00E27B86;
+			productRefGroup = 52EE318818F97E7D00E27B86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52EE318618F97E7D00E27B86 /* iconfontr */,
+				52EE31AA18F97E7E00E27B86 /* iconfontrTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52EE318518F97E7D00E27B86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EE319518F97E7D00E27B86 /* InfoPlist.strings in Resources */,
+				52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */,
+				52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */,
+				52EE31A118F97E7D00E27B86 /* IFDocument.xib in Resources */,
+				52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EE31A918F97E7E00E27B86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EE31B618F97E7E00E27B86 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52EE318318F97E7D00E27B86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EE319718F97E7D00E27B86 /* main.m in Sources */,
+				52EE319E18F97E7D00E27B86 /* IFDocument.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52EE31A718F97E7E00E27B86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52EE31B818F97E7E00E27B86 /* iconfontrTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52EE31B018F97E7E00E27B86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52EE318618F97E7D00E27B86 /* iconfontr */;
+			targetProxy = 52EE31AF18F97E7E00E27B86 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52EE319318F97E7D00E27B86 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EE319418F97E7D00E27B86 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		52EE319918F97E7D00E27B86 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EE319A18F97E7D00E27B86 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		52EE319F18F97E7D00E27B86 /* IFDocument.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EE31A018F97E7D00E27B86 /* Base */,
+			);
+			name = IFDocument.xib;
+			sourceTree = "<group>";
+		};
+		52EE31A218F97E7D00E27B86 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EE31A318F97E7D00E27B86 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		52EE31B418F97E7E00E27B86 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52EE31B518F97E7E00E27B86 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52EE31B918F97E7E00E27B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52EE31BA18F97E7E00E27B86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52EE31BC18F97E7E00E27B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
+				INFOPLIST_FILE = "iconfontr/iconfontr-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		52EE31BD18F97E7E00E27B86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
+				INFOPLIST_FILE = "iconfontr/iconfontr-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		52EE31BF18F97E7E00E27B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iconfontr.app/Contents/MacOS/iconfontr";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "iconfontrTests/iconfontrTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		52EE31C018F97E7E00E27B86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iconfontr.app/Contents/MacOS/iconfontr";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
+				INFOPLIST_FILE = "iconfontrTests/iconfontrTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52EE318218F97E7D00E27B86 /* Build configuration list for PBXProject "iconfontr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EE31B918F97E7E00E27B86 /* Debug */,
+				52EE31BA18F97E7E00E27B86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52EE31BB18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EE31BC18F97E7E00E27B86 /* Debug */,
+				52EE31BD18F97E7E00E27B86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52EE31BE18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52EE31BF18F97E7E00E27B86 /* Debug */,
+				52EE31C018F97E7E00E27B86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52EE317F18F97E7D00E27B86 /* Project object */;
+}
