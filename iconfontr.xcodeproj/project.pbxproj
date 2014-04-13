@@ -19,6 +19,8 @@
 		52EE31AE18F97E7E00E27B86 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE318A18F97E7D00E27B86 /* Cocoa.framework */; };
 		52EE31B618F97E7E00E27B86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31B418F97E7E00E27B86 /* InfoPlist.strings */; };
 		52EE31B818F97E7E00E27B86 /* iconfontrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31B718F97E7E00E27B86 /* iconfontrTests.m */; };
+		52EE31CE18F9977800E27B86 /* IFGlyphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31CD18F9977800E27B86 /* IFGlyphView.m */; };
+		8EE3D5A1536448EB95CF014A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F283762F9E844787A189F853 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5229720218FA689D0004EDF6 /* iconfontr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iconfontr.entitlements; sourceTree = "<group>"; };
 		52EE318718F97E7D00E27B86 /* iconfontr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconfontr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EE318A18F97E7D00E27B86 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52EE318D18F97E7D00E27B86 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -52,6 +55,10 @@
 		52EE31B318F97E7E00E27B86 /* iconfontrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iconfontrTests-Info.plist"; sourceTree = "<group>"; };
 		52EE31B518F97E7E00E27B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52EE31B718F97E7E00E27B86 /* iconfontrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iconfontrTests.m; sourceTree = "<group>"; };
+		52EE31CC18F9977800E27B86 /* IFGlyphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFGlyphView.h; sourceTree = "<group>"; };
+		52EE31CD18F9977800E27B86 /* IFGlyphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFGlyphView.m; sourceTree = "<group>"; };
+		F283762F9E844787A189F853 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF01359447F44CD4818FB203 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52EE318B18F97E7D00E27B86 /* Cocoa.framework in Frameworks */,
+				8EE3D5A1536448EB95CF014A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +90,7 @@
 				52EE31B118F97E7E00E27B86 /* iconfontrTests */,
 				52EE318918F97E7D00E27B86 /* Frameworks */,
 				52EE318818F97E7D00E27B86 /* Products */,
+				FF01359447F44CD4818FB203 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +109,7 @@
 				52EE318A18F97E7D00E27B86 /* Cocoa.framework */,
 				52EE31AC18F97E7E00E27B86 /* XCTest.framework */,
 				52EE318C18F97E7D00E27B86 /* Other Frameworks */,
+				F283762F9E844787A189F853 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,8 +127,11 @@
 		52EE319018F97E7D00E27B86 /* iconfontr */ = {
 			isa = PBXGroup;
 			children = (
+				5229720218FA689D0004EDF6 /* iconfontr.entitlements */,
 				52EE319C18F97E7D00E27B86 /* IFDocument.h */,
 				52EE319D18F97E7D00E27B86 /* IFDocument.m */,
+				52EE31CC18F9977800E27B86 /* IFGlyphView.h */,
+				52EE31CD18F9977800E27B86 /* IFGlyphView.m */,
 				52EE319F18F97E7D00E27B86 /* IFDocument.xib */,
 				52EE31A218F97E7D00E27B86 /* MainMenu.xib */,
 				52EE31A518F97E7D00E27B86 /* Images.xcassets */,
@@ -164,9 +177,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52EE31BB18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontr" */;
 			buildPhases = (
+				05DCDF3A56344C359044E702 /* Check Pods Manifest.lock */,
 				52EE318318F97E7D00E27B86 /* Sources */,
 				52EE318418F97E7D00E27B86 /* Frameworks */,
 				52EE318518F97E7D00E27B86 /* Resources */,
+				56CDBE288A8B4DC6815F7E6B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,6 +220,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "io-meter";
 				TargetAttributes = {
+					52EE318618F97E7D00E27B86 = {
+						DevelopmentTeam = MC98392EJC;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					52EE31AA18F97E7E00E27B86 = {
 						TestTargetID = 52EE318618F97E7D00E27B86;
 					};
@@ -252,11 +275,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05DCDF3A56344C359044E702 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		56CDBE288A8B4DC6815F7E6B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		52EE318318F97E7D00E27B86 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EE31CE18F9977800E27B86 /* IFGlyphView.m in Sources */,
 				52EE319718F97E7D00E27B86 /* main.m in Sources */,
 				52EE319E18F97E7D00E27B86 /* IFDocument.m in Sources */,
 			);
@@ -396,8 +453,11 @@
 		};
 		52EE31BC18F97E7E00E27B86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF01359447F44CD4818FB203 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iconfontr/iconfontr.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
@@ -409,8 +469,11 @@
 		};
 		52EE31BD18F97E7E00E27B86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF01359447F44CD4818FB203 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iconfontr/iconfontr.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
@@ -479,6 +542,7 @@
 				52EE31BD18F97E7E00E27B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52EE31BE18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontrTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +551,7 @@
 				52EE31C018F97E7E00E27B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

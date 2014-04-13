@@ -7,6 +7,14 @@
 //
 
 #import "IFDocument.h"
+#import "IFGlyphView.h"
+
+@interface IFDocument () <JNWCollectionViewDataSource, JNWCollectionViewDelegate>
+{
+  NSMutableArray *_glyphPathArray;
+}
+
+@end
 
 @implementation IFDocument
 
@@ -14,45 +22,86 @@
 {
     self = [super init];
     if (self) {
-    // Add your subclass-specific initialization here.
     }
     return self;
 }
 
 - (NSString *)windowNibName
 {
-  // Override returning the nib file name of the document
-  // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this method and override -makeWindowControllers instead.
   return @"IFDocument";
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
+- (void)windowControllerDidLoadNib:(NSWindowController *)windowController
 {
-  [super windowControllerDidLoadNib:aController];
-  // Add any code here that needs to be executed once the windowController has loaded the document's window.
+  [super windowControllerDidLoadNib:windowController];
+  [windowController.window setAcceptsMouseMovedEvents:YES];
+  
+  // initialize grid layout
+  JNWCollectionViewGridLayout *layout = [JNWCollectionViewGridLayout new];
+  _collectionView.collectionViewLayout = layout;
+  layout.itemSize = NSMakeSize(80, 80);
+
+  // display icons
+  [_collectionView reloadData];
 }
 
 + (BOOL)autosavesInPlace
 {
-    return YES;
+    return NO;
 }
 
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
+- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError
 {
-  // Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
-  // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-  NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-  @throw exception;
-  return nil;
+  // read font from url
+  CFURLRef theCFURL = (__bridge CFURLRef)url;
+  CGDataProviderRef dataProvider = CGDataProviderCreateWithURL(theCFURL);
+  CGFontRef theCGFont = CGFontCreateWithDataProvider(dataProvider);
+  
+  if (theCGFont == NULL) return NO;
+  
+  // cast CGFont back to NSFont
+  CTFontRef theCTFont = CTFontCreateWithGraphicsFont(theCGFont, 64, NULL, NULL);
+  _font = (__bridge NSFont *) theCTFont;
+  
+  // get available glyphs
+  NSUInteger glyphCount = [_font numberOfGlyphs];
+  _glyphPathArray = [[NSMutableArray alloc] initWithCapacity:glyphCount];
+ 
+  for (NSUInteger i=1; i<=glyphCount; i++) {
+    NSRect boundingRect = [_font boundingRectForGlyph:(NSGlyph)i];
+    
+    if (!NSIsEmptyRect(boundingRect)) {
+      // convert glyph into bezier path
+      NSBezierPath *path = [[NSBezierPath alloc] init];
+      [path moveToPoint:NSMakePoint(-NSMidX(boundingRect), -NSMidY(boundingRect))];
+      [path appendBezierPathWithGlyph:(NSGlyph)i inFont:_font];
+      [_glyphPathArray addObject:path];
+    }
+  }
+  
+  return YES;
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
+
+#pragma mark - DataSource
+
+- (NSUInteger)collectionView:(JNWCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-  // Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
-  // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
-  // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-  NSException *exception = [NSException exceptionWithName:@"UnimplementedMethod" reason:[NSString stringWithFormat:@"%@ is unimplemented", NSStringFromSelector(_cmd)] userInfo:nil];
-  @throw exception;
+  return [_glyphPathArray count];
+}
+
+- (JNWCollectionViewCell *)collectionView:(JNWCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  IFGlyphView *glyphView = [[IFGlyphView alloc] init];
+
+  NSBezierPath *path = [_glyphPathArray objectAtIndex:indexPath.jnw_item];
+  glyphView.bezierPath = path;
+  
+  return glyphView;
+}
+
+- (BOOL)collectionView:(JNWCollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
   return YES;
 }
 

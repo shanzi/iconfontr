@@ -7,7 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <JNWCollectionView.h>
 
 @interface IFDocument : NSDocument
+
+@property(nonatomic, readonly) NSFont *font;
+@property(nonatomic, readonly) NSArray *glyphs;
+
+@property(assign) IBOutlet JNWCollectionView* collectionView;
 
 @end
