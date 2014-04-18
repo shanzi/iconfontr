@@ -7,34 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526F294918FD2E9B00DAAFCF /* IFDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294818FD2E9B00DAAFCF /* IFDocumentWindowController.m */; };
+		526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */; };
+		52B3F4EE1900EFF800D53238 /* IFColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B3F4ED1900EFF800D53238 /* IFColorPicker.m */; };
 		52EE318B18F97E7D00E27B86 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE318A18F97E7D00E27B86 /* Cocoa.framework */; };
 		52EE319518F97E7D00E27B86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319318F97E7D00E27B86 /* InfoPlist.strings */; };
 		52EE319718F97E7D00E27B86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319618F97E7D00E27B86 /* main.m */; };
 		52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319918F97E7D00E27B86 /* Credits.rtf */; };
 		52EE319E18F97E7D00E27B86 /* IFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319D18F97E7D00E27B86 /* IFDocument.m */; };
-		52EE31A118F97E7D00E27B86 /* IFDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319F18F97E7D00E27B86 /* IFDocument.xib */; };
+		52EE31A118F97E7D00E27B86 /* IFDocumentWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319F18F97E7D00E27B86 /* IFDocumentWindow.xib */; };
 		52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A218F97E7D00E27B86 /* MainMenu.xib */; };
 		52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A518F97E7D00E27B86 /* Images.xcassets */; };
-		52EE31AD18F97E7E00E27B86 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE31AC18F97E7E00E27B86 /* XCTest.framework */; };
-		52EE31AE18F97E7E00E27B86 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE318A18F97E7D00E27B86 /* Cocoa.framework */; };
-		52EE31B618F97E7E00E27B86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31B418F97E7E00E27B86 /* InfoPlist.strings */; };
-		52EE31B818F97E7E00E27B86 /* iconfontrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31B718F97E7E00E27B86 /* iconfontrTests.m */; };
 		52EE31CE18F9977800E27B86 /* IFGlyphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31CD18F9977800E27B86 /* IFGlyphView.m */; };
+		52F85C2318FD4A2100F42D76 /* IFCollectionGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */; };
 		8EE3D5A1536448EB95CF014A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F283762F9E844787A189F853 /* libPods.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		52EE31AF18F97E7E00E27B86 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52EE317F18F97E7D00E27B86 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52EE318618F97E7D00E27B86;
-			remoteInfo = iconfontr;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		5229720218FA689D0004EDF6 /* iconfontr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = iconfontr.entitlements; sourceTree = "<group>"; };
+		526F294718FD2E9B00DAAFCF /* IFDocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFDocumentWindowController.h; sourceTree = "<group>"; };
+		526F294818FD2E9B00DAAFCF /* IFDocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFDocumentWindowController.m; sourceTree = "<group>"; };
+		526F294C18FD3D8000DAAFCF /* IFMagnifyCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFMagnifyCollectionView.h; sourceTree = "<group>"; };
+		526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFMagnifyCollectionView.m; sourceTree = "<group>"; };
+		52B3F4EC1900EFF800D53238 /* IFColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFColorPicker.h; sourceTree = "<group>"; };
+		52B3F4ED1900EFF800D53238 /* IFColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFColorPicker.m; sourceTree = "<group>"; };
 		52EE318718F97E7D00E27B86 /* iconfontr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconfontr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EE318A18F97E7D00E27B86 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52EE318D18F97E7D00E27B86 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -47,16 +42,14 @@
 		52EE319A18F97E7D00E27B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		52EE319C18F97E7D00E27B86 /* IFDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFDocument.h; sourceTree = "<group>"; };
 		52EE319D18F97E7D00E27B86 /* IFDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFDocument.m; sourceTree = "<group>"; };
-		52EE31A018F97E7D00E27B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IFDocument.xib; sourceTree = "<group>"; };
+		52EE31A018F97E7D00E27B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IFDocumentWindow.xib; sourceTree = "<group>"; };
 		52EE31A318F97E7D00E27B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		52EE31A518F97E7D00E27B86 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		52EE31AB18F97E7E00E27B86 /* iconfontrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iconfontrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EE31AC18F97E7E00E27B86 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		52EE31B318F97E7E00E27B86 /* iconfontrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iconfontrTests-Info.plist"; sourceTree = "<group>"; };
-		52EE31B518F97E7E00E27B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		52EE31B718F97E7E00E27B86 /* iconfontrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iconfontrTests.m; sourceTree = "<group>"; };
 		52EE31CC18F9977800E27B86 /* IFGlyphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFGlyphView.h; sourceTree = "<group>"; };
 		52EE31CD18F9977800E27B86 /* IFGlyphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFGlyphView.m; sourceTree = "<group>"; };
+		52F85C2118FD4A2100F42D76 /* IFCollectionGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCollectionGridLayout.h; sourceTree = "<group>"; };
+		52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCollectionGridLayout.m; sourceTree = "<group>"; };
 		F283762F9E844787A189F853 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF01359447F44CD4818FB203 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,23 +64,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52EE31A818F97E7E00E27B86 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52EE31AE18F97E7E00E27B86 /* Cocoa.framework in Frameworks */,
-				52EE31AD18F97E7E00E27B86 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		526F294A18FD3D2A00DAAFCF /* Document Window */ = {
+			isa = PBXGroup;
+			children = (
+				526F294B18FD3D4100DAAFCF /* IFMagnifyCollectionView */,
+				52EE319F18F97E7D00E27B86 /* IFDocumentWindow.xib */,
+				526F294718FD2E9B00DAAFCF /* IFDocumentWindowController.h */,
+				526F294818FD2E9B00DAAFCF /* IFDocumentWindowController.m */,
+			);
+			name = "Document Window";
+			sourceTree = "<group>";
+		};
+		526F294B18FD3D4100DAAFCF /* IFMagnifyCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				52EE31CC18F9977800E27B86 /* IFGlyphView.h */,
+				52EE31CD18F9977800E27B86 /* IFGlyphView.m */,
+				526F294C18FD3D8000DAAFCF /* IFMagnifyCollectionView.h */,
+				526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */,
+				52F85C2118FD4A2100F42D76 /* IFCollectionGridLayout.h */,
+				52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */,
+				52B3F4EC1900EFF800D53238 /* IFColorPicker.h */,
+				52B3F4ED1900EFF800D53238 /* IFColorPicker.m */,
+			);
+			name = IFMagnifyCollectionView;
+			sourceTree = "<group>";
+		};
 		52EE317E18F97E7D00E27B86 = {
 			isa = PBXGroup;
 			children = (
 				52EE319018F97E7D00E27B86 /* iconfontr */,
-				52EE31B118F97E7E00E27B86 /* iconfontrTests */,
 				52EE318918F97E7D00E27B86 /* Frameworks */,
 				52EE318818F97E7D00E27B86 /* Products */,
 				FF01359447F44CD4818FB203 /* Pods.xcconfig */,
@@ -98,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				52EE318718F97E7D00E27B86 /* iconfontr.app */,
-				52EE31AB18F97E7E00E27B86 /* iconfontrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,12 +135,9 @@
 		52EE319018F97E7D00E27B86 /* iconfontr */ = {
 			isa = PBXGroup;
 			children = (
-				5229720218FA689D0004EDF6 /* iconfontr.entitlements */,
+				526F294A18FD3D2A00DAAFCF /* Document Window */,
 				52EE319C18F97E7D00E27B86 /* IFDocument.h */,
 				52EE319D18F97E7D00E27B86 /* IFDocument.m */,
-				52EE31CC18F9977800E27B86 /* IFGlyphView.h */,
-				52EE31CD18F9977800E27B86 /* IFGlyphView.m */,
-				52EE319F18F97E7D00E27B86 /* IFDocument.xib */,
 				52EE31A218F97E7D00E27B86 /* MainMenu.xib */,
 				52EE31A518F97E7D00E27B86 /* Images.xcassets */,
 				52EE319118F97E7D00E27B86 /* Supporting Files */,
@@ -148,24 +153,6 @@
 				52EE319618F97E7D00E27B86 /* main.m */,
 				52EE319818F97E7D00E27B86 /* iconfontr-Prefix.pch */,
 				52EE319918F97E7D00E27B86 /* Credits.rtf */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		52EE31B118F97E7E00E27B86 /* iconfontrTests */ = {
-			isa = PBXGroup;
-			children = (
-				52EE31B718F97E7E00E27B86 /* iconfontrTests.m */,
-				52EE31B218F97E7E00E27B86 /* Supporting Files */,
-			);
-			path = iconfontrTests;
-			sourceTree = "<group>";
-		};
-		52EE31B218F97E7E00E27B86 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				52EE31B318F97E7E00E27B86 /* iconfontrTests-Info.plist */,
-				52EE31B418F97E7E00E27B86 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -192,24 +179,6 @@
 			productReference = 52EE318718F97E7D00E27B86 /* iconfontr.app */;
 			productType = "com.apple.product-type.application";
 		};
-		52EE31AA18F97E7E00E27B86 /* iconfontrTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 52EE31BE18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontrTests" */;
-			buildPhases = (
-				52EE31A718F97E7E00E27B86 /* Sources */,
-				52EE31A818F97E7E00E27B86 /* Frameworks */,
-				52EE31A918F97E7E00E27B86 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				52EE31B018F97E7E00E27B86 /* PBXTargetDependency */,
-			);
-			name = iconfontrTests;
-			productName = iconfontrTests;
-			productReference = 52EE31AB18F97E7E00E27B86 /* iconfontrTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,9 +197,6 @@
 							};
 						};
 					};
-					52EE31AA18F97E7E00E27B86 = {
-						TestTargetID = 52EE318618F97E7D00E27B86;
-					};
 				};
 			};
 			buildConfigurationList = 52EE318218F97E7D00E27B86 /* Build configuration list for PBXProject "iconfontr" */;
@@ -247,7 +213,6 @@
 			projectRoot = "";
 			targets = (
 				52EE318618F97E7D00E27B86 /* iconfontr */,
-				52EE31AA18F97E7E00E27B86 /* iconfontrTests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,16 +225,8 @@
 				52EE319518F97E7D00E27B86 /* InfoPlist.strings in Resources */,
 				52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */,
 				52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */,
-				52EE31A118F97E7D00E27B86 /* IFDocument.xib in Resources */,
+				52EE31A118F97E7D00E27B86 /* IFDocumentWindow.xib in Resources */,
 				52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52EE31A918F97E7E00E27B86 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52EE31B618F97E7E00E27B86 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,28 +271,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				52EE31CE18F9977800E27B86 /* IFGlyphView.m in Sources */,
+				526F294918FD2E9B00DAAFCF /* IFDocumentWindowController.m in Sources */,
 				52EE319718F97E7D00E27B86 /* main.m in Sources */,
+				52B3F4EE1900EFF800D53238 /* IFColorPicker.m in Sources */,
+				526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */,
+				52F85C2318FD4A2100F42D76 /* IFCollectionGridLayout.m in Sources */,
 				52EE319E18F97E7D00E27B86 /* IFDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52EE31A718F97E7E00E27B86 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				52EE31B818F97E7E00E27B86 /* iconfontrTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		52EE31B018F97E7E00E27B86 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 52EE318618F97E7D00E27B86 /* iconfontr */;
-			targetProxy = 52EE31AF18F97E7E00E27B86 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		52EE319318F97E7D00E27B86 /* InfoPlist.strings */ = {
@@ -354,12 +299,12 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		52EE319F18F97E7D00E27B86 /* IFDocument.xib */ = {
+		52EE319F18F97E7D00E27B86 /* IFDocumentWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				52EE31A018F97E7D00E27B86 /* Base */,
 			);
-			name = IFDocument.xib;
+			name = IFDocumentWindow.xib;
 			sourceTree = "<group>";
 		};
 		52EE31A218F97E7D00E27B86 /* MainMenu.xib */ = {
@@ -368,14 +313,6 @@
 				52EE31A318F97E7D00E27B86 /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		52EE31B418F97E7E00E27B86 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52EE31B518F97E7E00E27B86 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -479,46 +416,6 @@
 			};
 			name = Release;
 		};
-		52EE31BF18F97E7E00E27B86 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iconfontr.app/Contents/MacOS/iconfontr";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "iconfontrTests/iconfontrTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		52EE31C018F97E7E00E27B86 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iconfontr.app/Contents/MacOS/iconfontr";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iconfontr/iconfontr-Prefix.pch";
-				INFOPLIST_FILE = "iconfontrTests/iconfontrTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -536,15 +433,6 @@
 			buildConfigurations = (
 				52EE31BC18F97E7E00E27B86 /* Debug */,
 				52EE31BD18F97E7E00E27B86 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		52EE31BE18F97E7E00E27B86 /* Build configuration list for PBXNativeTarget "iconfontrTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52EE31BF18F97E7E00E27B86 /* Debug */,
-				52EE31C018F97E7E00E27B86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

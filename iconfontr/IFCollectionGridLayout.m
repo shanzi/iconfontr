@@ -10,4 +10,9 @@
 
 @implementation IFCollectionGridLayout
 
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+{
+  return _allowsLiveLayout;
+}
+
 @end

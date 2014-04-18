@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="IFDocument">
+        <customObject id="-2" userLabel="File's Owner" customClass="IFDocumentWindowController">
             <connections>
-                <outlet property="collectionView" destination="YFf-HB-M9m" id="cvl-52-Yrc"/>
+                <outlet property="collectionView" destination="JeD-dj-Goa" id="hl7-yq-dHf"/>
+                <outlet property="colorPicker" destination="gh5-Cz-Aeh" id="jEn-CD-58g"/>
                 <outlet property="window" destination="xOd-HO-29H" id="JIz-fz-R2o"/>
             </connections>
         </customObject>
@@ -17,46 +18,41 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="133" y="235" width="507" height="413"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
             <value key="minSize" type="size" width="94" height="86"/>
             <view key="contentView" id="gIp-Ho-8D9">
                 <rect key="frame" x="0.0" y="0.0" width="507" height="413"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="YFf-HB-M9m" customClass="JNWCollectionView">
-                        <rect key="frame" x="-1" y="-1" width="509" height="415"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="JeD-dj-Goa" customClass="IFMagnifyCollectionView">
+                        <rect key="frame" x="-1" y="25" width="509" height="389"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="gh5-Cz-Aeh" customClass="IFColorPicker">
+                        <rect key="frame" x="-1" y="-1" width="509" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="DLn-og-UJj"/>
+                        </constraints>
                         <connections>
-                            <outlet property="dataSource" destination="-2" id="hxU-tM-gBI"/>
-                            <outlet property="delegate" destination="-2" id="EfM-zc-Voh"/>
+                            <action selector="changeColor:" target="-2" id="R64-hx-RN3"/>
                         </connections>
                     </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="YFf-HB-M9m" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="-1" id="3AX-yb-rPu"/>
-                    <constraint firstItem="YFf-HB-M9m" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="-1" id="8hL-Ul-LOW"/>
-                    <constraint firstAttribute="trailing" secondItem="YFf-HB-M9m" secondAttribute="trailing" constant="-1" id="NFH-EL-NT5"/>
-                    <constraint firstAttribute="bottom" secondItem="YFf-HB-M9m" secondAttribute="bottom" constant="-1" id="ssV-o7-OvO"/>
+                    <constraint firstItem="gh5-Cz-Aeh" firstAttribute="top" secondItem="JeD-dj-Goa" secondAttribute="bottom" constant="-2" id="0Hi-Ac-6av"/>
+                    <constraint firstItem="gh5-Cz-Aeh" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="-1" id="0iv-XU-msM"/>
+                    <constraint firstItem="JeD-dj-Goa" firstAttribute="leading" secondItem="gIp-Ho-8D9" secondAttribute="leading" constant="-1" id="1E9-EH-4Bc"/>
+                    <constraint firstAttribute="bottom" secondItem="gh5-Cz-Aeh" secondAttribute="bottom" constant="-1" id="KlP-wa-134"/>
+                    <constraint firstItem="JeD-dj-Goa" firstAttribute="top" secondItem="gIp-Ho-8D9" secondAttribute="top" constant="-1" id="V0D-pr-dlS"/>
+                    <constraint firstAttribute="trailing" secondItem="JeD-dj-Goa" secondAttribute="trailing" constant="-1" id="VyC-rv-CDV"/>
+                    <constraint firstAttribute="trailing" secondItem="gh5-Cz-Aeh" secondAttribute="trailing" constant="-1" id="YZW-YI-k7f"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-x8E"/>
             </connections>
         </window>
-        <collectionViewItem nibName="" id="Agw-oa-GIy">
-            <connections>
-                <outlet property="view" destination="pU9-tr-Jyy" id="YoV-Lf-2MR"/>
-            </connections>
-        </collectionViewItem>
-        <view id="pU9-tr-Jyy">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-            <autoresizingMask key="autoresizingMask"/>
-        </view>
-        <arrayController id="g5x-zf-tkH">
-            <connections>
-                <binding destination="-2" name="contentArray" keyPath="self.glyphs" id="fVZ-pD-hUA"/>
-            </connections>
-        </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="EBs-t9-zB1"/>
     </objects>
 </document>

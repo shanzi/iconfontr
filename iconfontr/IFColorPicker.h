@@ -6,8 +6,13 @@
 //  Copyright (c) 2014 io-meter. All rights reserved.
 //
 
-#import "RMBlurredView.h"
 
-@interface IFColorPickerView : RMBlurredView
+#import <Cocoa/Cocoa.h>
+
+@interface IFColorPicker : NSControl
+
+@property(nonatomic, readonly) NSColor *foregroundColor;
+@property(nonatomic, readonly) NSColor *backgroundColor;
+@property(nonatomic) NSInteger pickedIndex;
 
 @end

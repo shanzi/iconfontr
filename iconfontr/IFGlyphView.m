@@ -8,12 +8,7 @@
 
 #import "IFGlyphView.h"
 
-@interface IFGlyphView()
-{
-  BOOL _mouseOver;
-}
-
-@end
+#define kGlyphViewPadding 4
 
 @implementation IFGlyphView
 
@@ -25,16 +20,13 @@
   
   // selection
   if (self.selected) {
-    NSBezierPath *border = [NSBezierPath bezierPathWithRect:self.bounds];
-    [[NSColor colorWithCalibratedRed:0.3 green:0.5 blue:1.0 alpha:1.0] setStroke];
-    [border setLineWidth:4.0];
-    [border stroke];
-  }
-  else if (_mouseOver){
-    NSBezierPath *border = [NSBezierPath bezierPathWithRect:self.bounds];
-    [[NSColor controlHighlightColor] setStroke];
-    [border setLineWidth:4.0];
-    [border stroke];
+    NSRect borderRect = NSMakeRect(kGlyphViewPadding,
+                                   kGlyphViewPadding,
+                                   self.bounds.size.width-kGlyphViewPadding,
+                                   self.bounds.size.height-kGlyphViewPadding);
+    NSBezierPath *border = [NSBezierPath bezierPathWithRect:borderRect];
+    [[NSColor colorWithCalibratedRed:0.9 green:0.9 blue:0.9 alpha:0.5] setFill];
+    [border fill];
   }
   
   // transform coordinates
@@ -43,7 +35,7 @@
   [transform concat];
   
   // draw path
-  [[NSColor blackColor] setFill];
+  [_color setFill];
   [_bezierPath fill];
   
   
@@ -53,27 +45,6 @@
 - (void)setSelected:(BOOL)selected
 {
   [super setSelected:selected];
-  [self setNeedsDisplay:YES];
-}
-
-- (void)viewDidMoveToSuperview
-{
-  [super viewDidMoveToSuperview];
-  [self addTrackingRect:self.bounds
-                  owner:self
-               userData:nil
-           assumeInside:NO];
-}
-
-- (void)mouseEntered:(NSEvent *)theEvent
-{
-  _mouseOver = YES;
-  [self setNeedsDisplay:YES];
-}
-
-- (void)mouseExited:(NSEvent *)theEvent
-{
-  _mouseOver = NO;
   [self setNeedsDisplay:YES];
 }
 

@@ -12,5 +12,6 @@
 @interface IFGlyphView : JNWCollectionViewCell
 
 @property(nonatomic) NSBezierPath *bezierPath;
+@property(nonatomic) NSColor *color;
 
 @end

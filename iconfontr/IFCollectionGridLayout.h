@@ -10,4 +10,7 @@
 
 @interface IFCollectionGridLayout : JNWCollectionViewGridLayout
 
+
+@property(nonatomic) BOOL allowsLiveLayout;
+
 @end

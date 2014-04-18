@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 io-meter. All rights reserved.
 //
 
-#import "JNWCollectionViewFramework.h"
+#import <JNWCollectionView.h>
 
 @interface IFMagnifyCollectionView : JNWCollectionView
 
