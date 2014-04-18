@@ -1,0 +1,5 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/JNWCollectionView" "${PODS_ROOT}/Headers/JNWScrollView" "${PODS_ROOT}/Headers/NSColor-Crayola" "${PODS_ROOT}/Headers/PXSourceList"
+OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/JNWCollectionView" "-isystem${PODS_ROOT}/Headers/JNWScrollView" "-isystem${PODS_ROOT}/Headers/NSColor-Crayola" "-isystem${PODS_ROOT}/Headers/PXSourceList"
+OTHER_LDFLAGS = -ObjC -framework Cocoa -framework QuartzCore
+PODS_ROOT = ${SRCROOT}/Pods

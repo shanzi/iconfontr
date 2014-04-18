@@ -1,0 +1,5 @@
+#include "Pods-NSColor-Crayola.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/NSColor-Crayola" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/JNWCollectionView" "${PODS_ROOT}/Headers/JNWScrollView" "${PODS_ROOT}/Headers/NSColor-Crayola" "${PODS_ROOT}/Headers/PXSourceList"
+OTHER_LDFLAGS = -ObjC
+PODS_ROOT = ${SRCROOT}

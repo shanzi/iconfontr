@@ -1,0 +1,1 @@
+PODS_JNWCOLLECTIONVIEW_OTHER_LDFLAGS = -framework Cocoa -framework QuartzCore

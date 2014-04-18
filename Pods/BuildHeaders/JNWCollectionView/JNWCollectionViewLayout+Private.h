@@ -1,0 +1,1 @@
+../../JNWCollectionView/JNWCollectionView/JNWCollectionViewLayout+Private.h
