@@ -36,7 +36,6 @@
 - (void)windowDidLoad
 {
   [super windowDidLoad];
-  self.window.backgroundColor = [NSColor whiteColor];
   _colorPicker.pickedIndex = 0;
   _foregroundColor = _colorPicker.foregroundColor;
   _collectionView.dataSource = self;
@@ -55,7 +54,7 @@
 {
   _foregroundColor = _colorPicker.foregroundColor;
   _collectionView.backgroundColor = _colorPicker.backgroundColor;
-  for (IFGlyphView *view in _collectionView.visibleCells) {
+  for (IFGlyphView *view in [_collectionView.documentView subviews]) {
     view.color = _foregroundColor;
     [view setNeedsDisplay:YES];
   }

@@ -15,4 +15,9 @@
   return _allowsLiveLayout;
 }
 
+- (JNWCollectionViewScrollDirection)scrollDirection
+{
+  return JNWCollectionViewScrollDirectionBoth;
+}
+
 @end

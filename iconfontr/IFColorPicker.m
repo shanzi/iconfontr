@@ -74,13 +74,13 @@
   for (NSInteger i=0; i<colorsCount; i++) {
     
     
-    [[self foregroundColorAtIndex:i] setFill];
+    [[self backgroundColorAtIndex:i] setFill];
     [circle fill];
     
-    [[self backgroundColorAtIndex:i] setFill];
+    [[self foregroundColorAtIndex:i] setFill];
     [innerCircle fill];
     
-    if (_pickedIndex==i || (_pickedIndex - maxPickerCount)==i) {
+    if (_pickedIndex==i || (_pickedIndex - [self colorsCount])==i) {
       [[NSColor blackColor] setStroke];
       [circle stroke];
     }
@@ -94,7 +94,18 @@
   return 9;
 }
 
+
 - (NSColor *)foregroundColorAtIndex:(NSInteger)index
+{
+  switch (index) {
+    case 0:
+      return [NSColor blackColor];
+    default:
+      return [NSColor whiteColor];
+  }
+}
+
+- (NSColor *)backgroundColorAtIndex:(NSInteger)index
 {
   switch (index) {
     case 1:
@@ -114,18 +125,10 @@
     case 8:
       return [NSColor crayolaRedColor];
     default:
-      return [NSColor blackColor];
+      return [NSColor whiteColor];
   }
 }
 
-- (NSColor *)backgroundColorAtIndex:(NSInteger)index
-{
-  switch (index) {
-    default:
-      return [NSColor whiteColor];
-      break;
-  }
-}
 
 - (BOOL)setPickedForLocation:(NSPoint)location isRightClick:(BOOL)rightClick
 {
