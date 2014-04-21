@@ -24,6 +24,7 @@
 - (void)awakeFromNib
 {
   [super awakeFromNib];
+  [self setAutohidesScrollers:YES];
   [self invokeMagnification];
   [self applyGridLayout];
 }
@@ -68,6 +69,7 @@
     _gridLayout.allowsLiveLayout = YES;
     [self.collectionViewLayout invalidateLayout];
   }
+  self.scrollerStyle = NSScrollerStyleOverlay;
 }
 
 - (void)keyDown:(NSEvent *)theEvent
