@@ -8,6 +8,8 @@
 
 #import "IFMagnifyCollectionView.h"
 #import "IFCollectionGridLayout.h"
+#import "NSBezierPath+SVGPathString.h"
+#import "IFGlyphView.h"
 
 #define kEqualsKeyCode 24
 #define kMinusKeyCode 27
@@ -65,7 +67,7 @@
 
 - (void)liveMagnifyDidEnd:(NSNotification *)n
 {
-  if (self.magnification<=1.01 || [self.documentView frame].size.width <= self.visibleSize.width) {
+  if (self.magnification<=1.01 || [self.documentView frame].size.width <= self.visibleSize.width - 10.0) {
     _gridLayout.allowsLiveLayout = YES;
     [self.collectionViewLayout invalidateLayout];
   }
@@ -90,6 +92,48 @@
 - (void)layoutDocumentView {
 	if (_gridLayout.allowsLiveLayout) {
     [super layoutDocumentView];
+  }
+}
+
+#pragma mark - Actions
+- (void)selectNone:(id)sender
+{
+  [self deselectAllItems];
+}
+
+- (void)copy:(id)sender
+{
+  NSArray * selectedItems = [self indexPathsForSelectedItems];
+  if ([selectedItems count]) {
+    NSIndexPath *lastSelected = [selectedItems lastObject];
+    NSString *content = [self SVGContentForIndexPath:lastSelected isPathString:[sender tag]];
+   if (content) {
+      NSPasteboard * pasteboard = [NSPasteboard pasteboardWithName:NSGeneralPboard];
+      [pasteboard clearContents];
+      [pasteboard setString:content forType:NSPasteboardTypeString];
+    }
+  }
+}
+
+#pragma mark - Content to save
+
+- (NSString *)SVGContentForIndexPath:(NSIndexPath*)indexPath isPathString:(BOOL)isPathString
+{
+  IFGlyphView *cell = (IFGlyphView *)[self cellForItemAtIndexPath:indexPath];
+  
+  NSColor *fgcolor = cell.color;
+  NSColor *bgcolor = self.backgroundColor;
+  NSString *canvasStyle = [NSString stringWithFormat:@"background:%@", [NSBezierPath SVGColorStringWithColor:bgcolor]];
+  NSString *pathStyle = [NSString stringWithFormat:@"fill:%@", [NSBezierPath SVGColorStringWithColor:fgcolor]];
+  
+  if (isPathString) {
+    return [cell.bezierPath SVGPathString];
+  }
+  else {
+    return [cell.bezierPath SVGTextWithWidth:nil
+                                      height:nil
+                                 canvasStyle:canvasStyle
+                                   pathStyle:pathStyle];
   }
 }
 

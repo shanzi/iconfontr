@@ -10,4 +10,6 @@
 
 @interface IFMagnifyCollectionView : JNWCollectionView
 
+- (NSString *)SVGContentForIndexPath:(NSIndexPath*)indexPath isPathString:(BOOL)isPathString;
+
 @end

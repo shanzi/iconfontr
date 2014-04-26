@@ -7,8 +7,10 @@
 //
 
 #import "IFDocumentWindowController.h"
+#import "IFMagnifyCollectionView.h"
 #import "IFGlyphView.h"
 #import "IFColorPicker.h"
+#import "IFExportPanelController.h"
 
 #import <JNWCollectionView.h>
 
@@ -49,6 +51,7 @@
   _glyphPathes = glyphPathes;
 }
 
+#pragma mark - Actions
 
 - (void)changeColor:(id)sender
 {
@@ -58,6 +61,58 @@
     view.color = _foregroundColor;
     [view setNeedsDisplay:YES];
   }
+}
+
+- (void)exportSelection:(id)sender
+{
+  if ([_collectionView.indexPathsForSelectedItems count]==1) {
+    [self exportSingle];
+  }
+  else {
+    IFExportPanelController *exportController = [IFExportPanelController shared];
+    [exportController showPanelFor:self.window];
+  }
+}
+
+
+#pragma mark - save
+
+- (void)exportSingle
+{
+  NSSavePanel *savePanel = [NSSavePanel savePanel];
+  savePanel.message = @"Export";
+  savePanel.allowedFileTypes = @[@"svg", @"png", @"tiff", @"jpeg"];
+  [savePanel beginSheetModalForWindow:self.window
+                    completionHandler:^(NSInteger result) {
+                      if(result==NSFileHandlingPanelCancelButton) return;
+                      
+                      [savePanel orderOut:nil];
+                      
+                      NSArray *selected = _collectionView.indexPathsForSelectedItems;
+                      NSIndexPath *toExport = [selected lastObject];
+                      NSString *content = [_collectionView SVGContentForIndexPath:toExport isPathString:NO];
+                      if (content) {
+                        NSError *err = nil;
+                        [content writeToURL:[savePanel URL]
+                                 atomically:YES
+                                   encoding:NSUTF8StringEncoding
+                                      error:&err];
+                        if (err) {
+                          NSRunCriticalAlertPanel(@"Export Failed",
+                                                  @"Failed to write into selected path",
+                                                  @"dismiss", nil, nil);
+                        }
+                      }
+                      else {
+                        NSRunCriticalAlertPanel(@"Empty Content", @"Nothing to write",
+                                                @"dismiss", nil, nil);
+                      }
+                    }];
+}
+
+- (void)exportImages
+{
+  
 }
 
 #pragma mark - DataSource
@@ -81,6 +136,5 @@
 {
   return YES;
 }
-
 
 @end

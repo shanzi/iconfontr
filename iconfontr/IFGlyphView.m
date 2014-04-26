@@ -50,4 +50,15 @@
   [self setNeedsDisplay:YES];
 }
 
+- (void)rightMouseDown:(NSEvent *)theEvent
+{
+  NSArray *selected = [self.collectionView indexPathsForSelectedItems];
+  if (![selected containsObject:self.indexPath]) {
+    [self.collectionView selectItemAtIndexPath:self.indexPath
+                              atScrollPosition:JNWCollectionViewScrollPositionNone
+                                      animated:NO];
+  }
+  [super rightMouseDown:theEvent];
+}
+
 @end
