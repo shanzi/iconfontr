@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import <JNWCollectionView.h>
 
-@interface IFDocument : NSDocument
+@interface IFFontDocument : NSDocument
 
 @end

@@ -2,21 +2,43 @@
 //  IFGlyphView.m
 //  iconfontr
 //
-//  Created by Chase Zhang on 4/12/14.
+//  Created by Chase Zhang on 4/29/14.
 //  Copyright (c) 2014 io-meter. All rights reserved.
 //
 
 #import "IFGlyphView.h"
-
 #define kGlyphViewPadding 2
 
 @implementation IFGlyphView
 
++ (void)drawPath:(NSBezierPath *)path inFrame:(NSRect)frame color:(NSColor *)color
+{
+  [NSGraphicsContext saveGraphicsState];
+  
+  // transform coordinates
+  NSAffineTransform *transform = [NSAffineTransform transform];
+  [transform translateXBy:NSMidX(frame) yBy:NSMidY(frame)];
+  [transform concat];
+  
+  CGFloat size = MIN(frame.size.width, frame.size.height);
+  if (size<=48) {
+    NSAffineTransform *scaleTransfrom = [NSAffineTransform transform];
+    [scaleTransfrom scaleBy:size/48];
+    [scaleTransfrom concat];
+  }
+  
+  
+  // draw path
+  [color setFill];
+  [path fill];
+  
+  
+  [NSGraphicsContext restoreGraphicsState];
+}
+
 - (void)drawRect:(NSRect)dirtyRect
 {
   [super drawRect:dirtyRect];
-  [NSGraphicsContext saveGraphicsState];
-  
   
   // selection
   if (self.selected) {
@@ -31,34 +53,7 @@
     [border fill];
   }
   
-  // transform coordinates
-  NSAffineTransform *transform = [NSAffineTransform transform];
-  [transform translateXBy:NSMidX(self.bounds) yBy:NSMidY(self.bounds)];
-  [transform concat];
-  
-  // draw path
-  [_color setFill];
-  [_bezierPath fill];
-  
-  
-  [NSGraphicsContext restoreGraphicsState];
-}
-
-- (void)setSelected:(BOOL)selected
-{
-  [super setSelected:selected];
-  [self setNeedsDisplay:YES];
-}
-
-- (void)rightMouseDown:(NSEvent *)theEvent
-{
-  NSArray *selected = [self.collectionView indexPathsForSelectedItems];
-  if (![selected containsObject:self.indexPath]) {
-    [self.collectionView selectItemAtIndexPath:self.indexPath
-                              atScrollPosition:JNWCollectionViewScrollPositionNone
-                                      animated:NO];
-  }
-  [super rightMouseDown:theEvent];
+  [IFGlyphView drawPath:_bezierPath inFrame:dirtyRect color:_color];
 }
 
 @end

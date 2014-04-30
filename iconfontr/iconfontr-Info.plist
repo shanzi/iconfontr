@@ -22,7 +22,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>NSDocumentClass</key>
-			<string>IFDocument</string>
+			<string>IFFontDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

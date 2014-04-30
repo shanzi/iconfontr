@@ -8,7 +8,7 @@
 
 #import "IFDocumentWindowController.h"
 #import "IFMagnifyCollectionView.h"
-#import "IFGlyphView.h"
+#import "IFCollectionGlyphCell.h"
 #import "IFColorPicker.h"
 #import "IFExportPanelController.h"
 
@@ -16,7 +16,6 @@
 
 @interface IFDocumentWindowController ()<JNWCollectionViewDataSource, JNWCollectionViewDelegate>
 {
-  NSArray *_glyphPathes;
   NSColor *_foregroundColor;
 }
 
@@ -42,13 +41,8 @@
   _foregroundColor = _colorPicker.foregroundColor;
   _collectionView.dataSource = self;
   _collectionView.delegate = self;
-  [_collectionView registerClass:[IFGlyphView class] forCellWithReuseIdentifier:@"glyphView"];
+  [_collectionView registerClass:[IFCollectionGlyphCell class] forCellWithReuseIdentifier:@"glyphCell"];
   [_collectionView reloadData];
-}
-
-- (void)setGlyphPathes:(NSArray *)glyphPathes
-{
-  _glyphPathes = glyphPathes;
 }
 
 #pragma mark - Actions
@@ -57,7 +51,7 @@
 {
   _foregroundColor = _colorPicker.foregroundColor;
   _collectionView.backgroundColor = _colorPicker.backgroundColor;
-  for (IFGlyphView *view in [_collectionView.documentView subviews]) {
+  for (IFCollectionGlyphCell *view in [_collectionView.documentView subviews]) {
     view.color = _foregroundColor;
     [view setNeedsDisplay:YES];
   }
@@ -65,13 +59,9 @@
 
 - (void)exportSelection:(id)sender
 {
-  if ([_collectionView.indexPathsForSelectedItems count]==1) {
-    [self exportSingle];
-  }
-  else {
-    IFExportPanelController *exportController = [IFExportPanelController shared];
-    [exportController showPanelFor:self.window];
-  }
+  IFExportPanelController *exportController = [IFExportPanelController shared];
+  exportController.contents = _content;
+  [exportController showPanelFor:self.window];
 }
 
 
@@ -116,20 +106,29 @@
 }
 
 #pragma mark - DataSource
+- (NSInteger)numberOfSectionsInCollectionView:(JNWCollectionView *)collectionView
+{
+  return [_content.sections count];
+}
 
 - (NSUInteger)collectionView:(JNWCollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-  return [_glyphPathes count];
+  NSArray *sections = [_content sections];
+  id<IFIconSectionModel> sec = [sections objectAtIndex:section];
+  return [[sec icons] count];
 }
 
 - (JNWCollectionViewCell *)collectionView:(JNWCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  IFGlyphView *glyphView = (IFGlyphView *)[collectionView dequeueReusableCellWithIdentifier:@"glyphView"];
-  NSBezierPath *path = [_glyphPathes objectAtIndex:indexPath.jnw_item];
-  glyphView.bezierPath = path;
-  glyphView.color = _foregroundColor;
+  IFCollectionGlyphCell *glyphCell = (IFCollectionGlyphCell *)[collectionView dequeueReusableCellWithIdentifier:@"glyphCell"];
   
-  return glyphView;
+  NSArray *sections = [_content sections];
+  id<IFIconSectionModel> section = [sections objectAtIndex:indexPath.jnw_section];
+  id<IFIconModel> glyph = [[section icons] objectAtIndex:indexPath.jnw_item];
+  glyphCell.content = glyph;
+  glyphCell.color = _foregroundColor;
+  
+  return glyphCell;
 }
 
 - (BOOL)collectionView:(JNWCollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath

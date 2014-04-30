@@ -9,7 +9,7 @@
 #import "IFMagnifyCollectionView.h"
 #import "IFCollectionGridLayout.h"
 #import "NSBezierPath+SVGPathString.h"
-#import "IFGlyphView.h"
+#import "IFCollectionGlyphCell.h"
 
 #define kEqualsKeyCode 24
 #define kMinusKeyCode 27
@@ -119,7 +119,7 @@
 
 - (NSString *)SVGContentForIndexPath:(NSIndexPath*)indexPath isPathString:(BOOL)isPathString
 {
-  IFGlyphView *cell = (IFGlyphView *)[self cellForItemAtIndexPath:indexPath];
+  IFCollectionGlyphCell *cell = (IFCollectionGlyphCell *)[self cellForItemAtIndexPath:indexPath];
   
   NSColor *fgcolor = cell.color;
   NSColor *bgcolor = self.backgroundColor;
@@ -127,10 +127,10 @@
   NSString *pathStyle = [NSString stringWithFormat:@"fill:%@", [NSBezierPath SVGColorStringWithColor:fgcolor]];
   
   if (isPathString) {
-    return [cell.bezierPath SVGPathString];
+    return [[cell.content bezierPath] SVGPathString];
   }
   else {
-    return [cell.bezierPath SVGTextWithWidth:nil
+    return [[cell.content bezierPath] SVGTextWithWidth:nil
                                       height:nil
                                  canvasStyle:canvasStyle
                                    pathStyle:pathStyle];

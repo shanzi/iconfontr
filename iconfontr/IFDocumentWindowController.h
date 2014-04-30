@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "IFModelProtocol.h"
 @class IFMagnifyCollectionView;
 @class IFColorPicker;
 
@@ -14,8 +15,8 @@
 
 @property(assign) IBOutlet IFMagnifyCollectionView *collectionView;
 @property(assign) IBOutlet IFColorPicker *colorPicker;
+@property(nonatomic, weak) id<IFIconCollectionModel> content;
 
-- (void)setGlyphPathes:(NSArray *)glyphPathes;
 - (IBAction)changeColor:(id)sender;
 - (IBAction)exportSelection:(id)sender;
 

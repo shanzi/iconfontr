@@ -6,18 +6,20 @@
 //  Copyright (c) 2014 io-meter. All rights reserved.
 //
 
-#import "IFDocument.h"
+#import "IFFontDocument.h"
 #import "IFDocumentWindowController.h"
+#import "IFFontGlyphModel.h"
 
-@interface IFDocument ()
+@interface IFFontDocument ()
 {
   NSMutableArray *_glyphPathes;
   NSFont *_font;
+  IFFontGlyphCollection *_collection;
 }
 
 @end
 
-@implementation IFDocument
+@implementation IFFontDocument
 
 - (id)init
 {
@@ -30,7 +32,7 @@
 - (void) makeWindowControllers
 {
   IFDocumentWindowController *windowController = [[IFDocumentWindowController alloc] init];
-  [(IFDocumentWindowController *)windowController setGlyphPathes:_glyphPathes];
+  windowController.content = _collection;
   [self addWindowController:windowController];
 }
 
@@ -56,7 +58,12 @@
   
   // get available glyphs
   NSUInteger glyphCount = [_font numberOfGlyphs];
-  _glyphPathes = [[NSMutableArray alloc] initWithCapacity:glyphCount];
+  _collection = [[IFFontGlyphCollection alloc] init];
+  
+  IFFontGlyphSection *defaultSection = [[IFFontGlyphSection alloc] init];
+  defaultSection.collection = _collection;
+  
+  NSMutableArray *glyphs = [[NSMutableArray alloc] initWithCapacity:glyphCount];
  
   for (NSUInteger i=1; i<=glyphCount; i++) {
     NSRect boundingRect = [_font boundingRectForGlyph:(NSGlyph)i];
@@ -66,11 +73,23 @@
       NSBezierPath *path = [[NSBezierPath alloc] init];
       [path moveToPoint:NSMakePoint(-NSMidX(boundingRect), -NSMidY(boundingRect))];
       [path appendBezierPathWithGlyph:(NSGlyph)i inFont:_font];
-      [_glyphPathes addObject:path];
+      if (!NSIsEmptyRect([path bounds])) {
+        IFFontGlyph *glyph = [[IFFontGlyph alloc] init];
+        unichar charCode = (unichar)i;
+        glyph.unicode = [NSString stringWithCharacters:&charCode length:1];
+        glyph.bezierPath = path;
+        glyph.collection = _collection;
+        glyph.section = defaultSection;
+        [glyphs addObject:glyph];
+      }
     }
   }
   
-  return YES;
+  defaultSection.icons = glyphs;
+  _collection.sections = @[defaultSection];
+  
+  if (_collection) return YES;
+  return NO;
 }
 
 

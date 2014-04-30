@@ -7,13 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "IFModelProtocol.h"
 
 typedef enum
 {
   IFSVGFileType=0,
   IFPNGFileType,
   IFJPEGFileType,
-  IFTIFFFileType,
 } IFExportFileType;
 
 @interface IFExportPanelController : NSWindowController
@@ -24,6 +24,7 @@ typedef enum
 @property(nonatomic) BOOL clipEnabled;
 @property(nonatomic) BOOL transparencyEnabled;
 @property(nonatomic) BOOL sizeEnabled;
+@property(nonatomic) BOOL showOnlySelected;
 
 @property(nonatomic) NSColor *foregroundColor;
 @property(nonatomic) NSColor *backgroundColor;
@@ -31,6 +32,9 @@ typedef enum
 @property(nonatomic) NSInteger padding;
 
 @property(nonatomic) NSInteger filetype;
+@property(nonatomic) id<IFIconCollectionModel> contents;
+
+@property(nonatomic, assign) IBOutlet NSOutlineView *selectionView;
 
 + (instancetype)shared;
 

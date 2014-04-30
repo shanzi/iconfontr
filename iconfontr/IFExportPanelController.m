@@ -7,10 +7,12 @@
 //
 
 #import "IFExportPanelController.h"
+#import "IFGlyphView.h"
+#import "IFFontGlyphModel.h"
 
 static IFExportPanelController *shared;
 
-@interface IFExportPanelController ()
+@interface IFExportPanelController ()<NSOutlineViewDataSource, NSOutlineViewDelegate>
 
 @end
 
@@ -34,6 +36,7 @@ static IFExportPanelController *shared;
     self.baseSize = 64;
     self.padding = 0;
     self.filetype = IFSVGFileType;
+    self.showOnlySelected = YES;
   }
   return self;
 }
@@ -70,16 +73,17 @@ static IFExportPanelController *shared;
       self.sizeEnabled = YES;
       break;
     case IFPNGFileType:
-    case IFTIFFFileType:
       self.clipEnabled = YES;
       self.transparencyEnabled = YES;
       self.sizeEnabled = YES;
+      self.transparency = YES;
       break;
     case IFSVGFileType:
       self.clipEnabled = NO;
       self.clipToBounds = YES;
       self.transparencyEnabled = YES;
       self.sizeEnabled = NO;
+      self.transparency = YES;
       break;
   }
 }
@@ -95,5 +99,136 @@ static IFExportPanelController *shared;
          returnCode:NSFileHandlingPanelCancelButton];
   }
 }
+
+- (void)setContents:(id<IFIconCollectionModel>)contents
+{
+  _contents = contents;
+  [_selectionView reloadData];
+}
+
+- (void)setShowOnlySelected:(BOOL)showOnlySelected
+{
+  _showOnlySelected = showOnlySelected;
+  [_selectionView reloadData];
+}
+
+
+#pragma mark - OutlineView Datasource
+- (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
+{
+  if (item==nil) {
+    return [[_contents sections] count];
+  }
+  else if ([item conformsToProtocol:@protocol(IFIconSectionModel)]){
+    id<IFIconSectionModel> section = item;
+    if (_showOnlySelected)
+      return [[section selectedIcons] count];
+    else
+      return [[section icons] count];
+  }
+  else {
+    return 0;
+  }
+}
+
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+{
+  return [item conformsToProtocol:@protocol(IFIconSectionModel)];
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView child:(NSInteger)index ofItem:(id)item
+{
+  if (item==nil) {
+    return [[_contents sections] objectAtIndex:index];
+  }
+  else if (_showOnlySelected) {
+    return [[item selectedIcons] objectAtIndex:index];
+  }
+  else {
+    return [[item icons] objectAtIndex:index];
+  }
+}
+
+- (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+{
+  if ([[tableColumn identifier] isEqualToString:@"select"]) {
+    if ([item conformsToProtocol:@protocol(IFIconSectionModel)]) {
+      NSInteger state = [object integerValue];
+      if (state==NSOffState) {
+        for (id<IFIconModel>icon in [item icons]) {
+          [icon setSelected:NO];
+        }
+      }
+      else {
+        for (id<IFIconModel>icon in [item icons]) {
+          [icon setSelected:YES];
+        }
+      }
+      [outlineView reloadItem:item reloadChildren:YES];
+    }
+    else if ([item conformsToProtocol:@protocol(IFIconModel)]) {
+      [item setSelected:([object integerValue]!=NSOffState)];
+      [outlineView reloadItem:item reloadChildren:NO];
+      if ([item section]) [outlineView reloadItem:[item section]
+                                   reloadChildren:_showOnlySelected];
+    }
+  }
+  else if ([[tableColumn identifier] isEqualToString:@"name"]){
+    if (object && ![object isEqualToString:@""]) {
+      if([item isKindOfClass:[IFFontGlyph class]]) {
+        [(IFFontGlyph *)item setName:object];
+      }
+      else if ([item isKindOfClass:[IFFontGlyphSection class]]) {
+        [(IFFontGlyphSection *)item setName:object];
+      }
+        
+      [outlineView reloadItem:item reloadChildren:NO];
+    }
+  }
+}
+
+- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+{
+  if ([[tableColumn identifier] isEqualToString:@"select"]) {
+    if ([item conformsToProtocol:@protocol(IFIconModel)]) {
+      return @([item selected]? NSOnState:NSOffState);
+    }
+    else if ([item conformsToProtocol:@protocol(IFIconSectionModel)]) {
+      NSInteger selectedCount = [[item selectedIcons] count];
+      if (selectedCount==[[item icons] count]) {
+        return @(NSOnState);
+      }
+      else if (selectedCount>0) {
+        return @(NSMixedState);
+      }
+      else {
+        return @(NSOffState);
+      }
+    }
+  }
+  else if ([[tableColumn identifier] isEqualToString:@"name"]) {
+    NSLog(@"%@", [item name]);
+    return [item name];
+  }
+  else if ([[tableColumn identifier] isEqualToString:@"preview"]) {
+    if ([item conformsToProtocol:@protocol(IFIconModel)]) {
+      return [item bezierPath];
+    }
+  }
+  else if ([[tableColumn identifier] isEqualToString:@"description"]) {
+    if ([item conformsToProtocol:@protocol(IFIconModel)]) {
+      NSRect rect = [item bounds];
+      return [NSString stringWithFormat:@"  %.2f x %.2f (pt)", rect.size.width, rect.size.height];
+    }
+    else {
+      return [NSString stringWithFormat:@"%ld of %ld icons selected",
+               [[item selectedIcons] count],
+               [[item icons] count]];
+    }
+  }
+  return nil;
+}
+
+#pragma mark - OutlineView Datasource
 
 @end

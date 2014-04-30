@@ -13,15 +13,18 @@
 		526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */; };
 		527A391A190BA5B500F041FA /* NSBezierPath+SVGPathString.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */; };
 		52B3F4EE1900EFF800D53238 /* IFColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B3F4ED1900EFF800D53238 /* IFColorPicker.m */; };
+		52E8691D190FB82300E1C65A /* IFGlyphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E8691C190FB82300E1C65A /* IFGlyphView.m */; };
+		52E86925190FCB0700E1C65A /* IFFontGlyphModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E86924190FCB0700E1C65A /* IFFontGlyphModel.m */; };
+		52E869281910E1A200E1C65A /* IFTableGlyphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E869271910E1A200E1C65A /* IFTableGlyphCell.m */; };
 		52EE318B18F97E7D00E27B86 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE318A18F97E7D00E27B86 /* Cocoa.framework */; };
 		52EE319518F97E7D00E27B86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319318F97E7D00E27B86 /* InfoPlist.strings */; };
 		52EE319718F97E7D00E27B86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319618F97E7D00E27B86 /* main.m */; };
 		52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319918F97E7D00E27B86 /* Credits.rtf */; };
-		52EE319E18F97E7D00E27B86 /* IFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319D18F97E7D00E27B86 /* IFDocument.m */; };
+		52EE319E18F97E7D00E27B86 /* IFFontDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319D18F97E7D00E27B86 /* IFFontDocument.m */; };
 		52EE31A118F97E7D00E27B86 /* IFDocumentWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319F18F97E7D00E27B86 /* IFDocumentWindow.xib */; };
 		52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A218F97E7D00E27B86 /* MainMenu.xib */; };
 		52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A518F97E7D00E27B86 /* Images.xcassets */; };
-		52EE31CE18F9977800E27B86 /* IFGlyphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31CD18F9977800E27B86 /* IFGlyphView.m */; };
+		52EE31CE18F9977800E27B86 /* IFCollectionGlyphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31CD18F9977800E27B86 /* IFCollectionGlyphCell.m */; };
 		52F85C2318FD4A2100F42D76 /* IFCollectionGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */; };
 		8EE3D5A1536448EB95CF014A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F283762F9E844787A189F853 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,13 @@
 		527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+SVGPathString.m"; sourceTree = "<group>"; };
 		52B3F4EC1900EFF800D53238 /* IFColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFColorPicker.h; sourceTree = "<group>"; };
 		52B3F4ED1900EFF800D53238 /* IFColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFColorPicker.m; sourceTree = "<group>"; };
+		52E8691B190FB82300E1C65A /* IFGlyphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFGlyphView.h; sourceTree = "<group>"; };
+		52E8691C190FB82300E1C65A /* IFGlyphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFGlyphView.m; sourceTree = "<group>"; };
+		52E86922190FC59700E1C65A /* IFModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFModelProtocol.h; sourceTree = "<group>"; };
+		52E86923190FCB0700E1C65A /* IFFontGlyphModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFFontGlyphModel.h; sourceTree = "<group>"; };
+		52E86924190FCB0700E1C65A /* IFFontGlyphModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFFontGlyphModel.m; sourceTree = "<group>"; };
+		52E869261910E1A200E1C65A /* IFTableGlyphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFTableGlyphCell.h; sourceTree = "<group>"; };
+		52E869271910E1A200E1C65A /* IFTableGlyphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFTableGlyphCell.m; sourceTree = "<group>"; };
 		52EE318718F97E7D00E27B86 /* iconfontr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iconfontr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52EE318A18F97E7D00E27B86 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		52EE318D18F97E7D00E27B86 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -48,14 +58,14 @@
 		52EE319618F97E7D00E27B86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		52EE319818F97E7D00E27B86 /* iconfontr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iconfontr-Prefix.pch"; sourceTree = "<group>"; };
 		52EE319A18F97E7D00E27B86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		52EE319C18F97E7D00E27B86 /* IFDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFDocument.h; sourceTree = "<group>"; };
-		52EE319D18F97E7D00E27B86 /* IFDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFDocument.m; sourceTree = "<group>"; };
+		52EE319C18F97E7D00E27B86 /* IFFontDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IFFontDocument.h; sourceTree = "<group>"; };
+		52EE319D18F97E7D00E27B86 /* IFFontDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IFFontDocument.m; sourceTree = "<group>"; };
 		52EE31A018F97E7D00E27B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/IFDocumentWindow.xib; sourceTree = "<group>"; };
 		52EE31A318F97E7D00E27B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		52EE31A518F97E7D00E27B86 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		52EE31AC18F97E7E00E27B86 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		52EE31CC18F9977800E27B86 /* IFGlyphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFGlyphView.h; sourceTree = "<group>"; };
-		52EE31CD18F9977800E27B86 /* IFGlyphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFGlyphView.m; sourceTree = "<group>"; };
+		52EE31CC18F9977800E27B86 /* IFCollectionGlyphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCollectionGlyphCell.h; sourceTree = "<group>"; };
+		52EE31CD18F9977800E27B86 /* IFCollectionGlyphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCollectionGlyphCell.m; sourceTree = "<group>"; };
 		52F85C2118FD4A2100F42D76 /* IFCollectionGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCollectionGridLayout.h; sourceTree = "<group>"; };
 		52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCollectionGridLayout.m; sourceTree = "<group>"; };
 		F283762F9E844787A189F853 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,8 +109,6 @@
 		526F294B18FD3D4100DAAFCF /* IFMagnifyCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				52EE31CC18F9977800E27B86 /* IFGlyphView.h */,
-				52EE31CD18F9977800E27B86 /* IFGlyphView.m */,
 				526F294C18FD3D8000DAAFCF /* IFMagnifyCollectionView.h */,
 				526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */,
 				52F85C2118FD4A2100F42D76 /* IFCollectionGridLayout.h */,
@@ -118,6 +126,29 @@
 				527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */,
 			);
 			name = SVG;
+			sourceTree = "<group>";
+		};
+		52E8691A190FB65500E1C65A /* Glyphs Cell and View */ = {
+			isa = PBXGroup;
+			children = (
+				52EE31CC18F9977800E27B86 /* IFCollectionGlyphCell.h */,
+				52EE31CD18F9977800E27B86 /* IFCollectionGlyphCell.m */,
+				52E8691B190FB82300E1C65A /* IFGlyphView.h */,
+				52E8691C190FB82300E1C65A /* IFGlyphView.m */,
+				52E869261910E1A200E1C65A /* IFTableGlyphCell.h */,
+				52E869271910E1A200E1C65A /* IFTableGlyphCell.m */,
+			);
+			name = "Glyphs Cell and View";
+			sourceTree = "<group>";
+		};
+		52E86921190FC56400E1C65A /* Icon Models */ = {
+			isa = PBXGroup;
+			children = (
+				52E86922190FC59700E1C65A /* IFModelProtocol.h */,
+				52E86923190FCB0700E1C65A /* IFFontGlyphModel.h */,
+				52E86924190FCB0700E1C65A /* IFFontGlyphModel.m */,
+			);
+			name = "Icon Models";
 			sourceTree = "<group>";
 		};
 		52EE317E18F97E7D00E27B86 = {
@@ -162,11 +193,13 @@
 		52EE319018F97E7D00E27B86 /* iconfontr */ = {
 			isa = PBXGroup;
 			children = (
+				52E86921190FC56400E1C65A /* Icon Models */,
+				52E8691A190FB65500E1C65A /* Glyphs Cell and View */,
 				52347301190BF79B0070B41A /* Export Window */,
 				527A3916190BA54900F041FA /* SVG */,
 				526F294A18FD3D2A00DAAFCF /* Document Window */,
-				52EE319C18F97E7D00E27B86 /* IFDocument.h */,
-				52EE319D18F97E7D00E27B86 /* IFDocument.m */,
+				52EE319C18F97E7D00E27B86 /* IFFontDocument.h */,
+				52EE319D18F97E7D00E27B86 /* IFFontDocument.m */,
 				52EE31A218F97E7D00E27B86 /* MainMenu.xib */,
 				52EE31A518F97E7D00E27B86 /* Images.xcassets */,
 				52EE319118F97E7D00E27B86 /* Supporting Files */,
@@ -300,15 +333,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52EE31CE18F9977800E27B86 /* IFGlyphView.m in Sources */,
+				52E869281910E1A200E1C65A /* IFTableGlyphCell.m in Sources */,
+				52EE31CE18F9977800E27B86 /* IFCollectionGlyphCell.m in Sources */,
 				526F294918FD2E9B00DAAFCF /* IFDocumentWindowController.m in Sources */,
+				52E86925190FCB0700E1C65A /* IFFontGlyphModel.m in Sources */,
 				52EE319718F97E7D00E27B86 /* main.m in Sources */,
 				52347305190BF81D0070B41A /* IFExportPanelController.m in Sources */,
 				52B3F4EE1900EFF800D53238 /* IFColorPicker.m in Sources */,
 				526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */,
+				52E8691D190FB82300E1C65A /* IFGlyphView.m in Sources */,
 				527A391A190BA5B500F041FA /* NSBezierPath+SVGPathString.m in Sources */,
 				52F85C2318FD4A2100F42D76 /* IFCollectionGridLayout.m in Sources */,
-				52EE319E18F97E7D00E27B86 /* IFDocument.m in Sources */,
+				52EE319E18F97E7D00E27B86 /* IFFontDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
