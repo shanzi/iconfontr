@@ -12,7 +12,7 @@
 
 static IFExportPanelController *shared;
 
-@interface IFExportPanelController ()<NSOutlineViewDataSource, NSOutlineViewDelegate>
+@interface IFExportPanelController ()<NSOutlineViewDataSource, NSTableViewDataSource, NSTableViewDelegate>
 
 @end
 
@@ -30,8 +30,6 @@ static IFExportPanelController *shared;
 {
   self = [super init];
   if (self) {
-    self.clipToBounds = YES;
-    self.transparency = YES;
     self.backgroundColor = [NSColor whiteColor];
     self.baseSize = 64;
     self.padding = 0;
@@ -67,23 +65,13 @@ static IFExportPanelController *shared;
   _filetype = filetype;
   switch (filetype) {
     case IFJPEGFileType:
-      self.clipEnabled = YES;
-      self.transparencyEnabled = NO;
-      self.transparency = NO;
-      self.sizeEnabled = YES;
-      break;
     case IFPNGFileType:
-      self.clipEnabled = YES;
-      self.transparencyEnabled = YES;
-      self.sizeEnabled = YES;
-      self.transparency = YES;
+      self.resolutionEnabled = YES;
       break;
     case IFSVGFileType:
-      self.clipEnabled = NO;
-      self.clipToBounds = YES;
-      self.transparencyEnabled = YES;
-      self.sizeEnabled = NO;
-      self.transparency = YES;
+      self.resolutionEnabled = NO;
+      self.removeResolutionEnabled = NO;
+      [_resolutionsView deselectAll:nil];
       break;
   }
 }
@@ -112,6 +100,45 @@ static IFExportPanelController *shared;
   [_selectionView reloadData];
 }
 
+- (NSArray *)resolutions
+{
+  if ([_resolutions count]==0) {
+    NSMutableArray *resolutions = [[NSMutableArray alloc] init];
+    [resolutions addObject:@{
+                             @"suffix":@"",
+                             @"width":@(48),
+                             @"height":@(48),
+                             @"padding":@(0)
+                             }];
+    _resolutions = resolutions;
+  }
+  return _resolutions;
+}
+
+- (void)editResolution:(id)sender{
+  NSInteger selectedRow = [_resolutionsView selectedRow];
+  if ([sender tag]==0) {
+    NSDictionary *resolution = [_resolutions lastObject];
+    NSString *suffix = [resolution objectForKey:@"suffix"];
+    NSInteger width = [[resolution objectForKey:@"width"] integerValue];
+    NSInteger height = [[resolution objectForKey:@"height"] integerValue];
+    NSInteger padding = [[resolution objectForKey:@"padding"] integerValue];
+    
+    NSDictionary *newResolution =
+    @{@"suffix": (suffix==nil || [suffix isEqualToString:@""])? @"@2x":@"",
+      @"width": @(width*2),
+      @"height": @(height*2),
+      @"padding": @(padding*2)};
+    [(NSMutableArray *)_resolutions addObject:newResolution];
+    [_resolutionsView reloadData];
+    [_resolutionsView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow+1] byExtendingSelection:NO];
+  }
+  else {
+    [(NSMutableArray *)_resolutions removeObjectAtIndex:selectedRow];
+    [_resolutionsView reloadData];
+    [_resolutionsView selectRowIndexes:[NSIndexSet indexSetWithIndex:selectedRow-1] byExtendingSelection:NO];
+  }
+}
 
 #pragma mark - OutlineView Datasource
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item
@@ -229,6 +256,37 @@ static IFExportPanelController *shared;
   return nil;
 }
 
-#pragma mark - OutlineView Datasource
+#pragma mark - Tableview Datasource
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+  return [self.resolutions count];
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+  NSDictionary *resolution = [_resolutions objectAtIndex:row];
+  return [resolution objectForKey:tableColumn.identifier];
+}
+
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+  NSDictionary *resolution = [_resolutions objectAtIndex:row];
+  NSMutableDictionary *newResolution = [[NSMutableDictionary alloc] initWithDictionary:resolution];
+  [newResolution setObject:object forKey:tableColumn.identifier];
+  NSInteger padding = [[newResolution objectForKey:@"padding"] integerValue];
+  NSInteger width = [[newResolution objectForKey:@"width"] integerValue];
+  NSInteger height = [[newResolution objectForKey:@"height"] integerValue];
+  NSInteger maxPadding = MIN(width, height) / 2 - 1;
+  padding = MIN(maxPadding, padding);
+  [newResolution setObject:@(padding) forKey:@"padding"];
+  [(NSMutableArray *)_resolutions setObject:newResolution atIndexedSubscript:row];
+  [_resolutionsView reloadData];
+}
+
+#pragma mark - Tableview Delegate
+- (void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+  self.removeResolutionEnabled = [_resolutionsView selectedRow]>=0 && [_resolutions count]>1;
+}
 
 @end

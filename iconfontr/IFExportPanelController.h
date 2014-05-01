@@ -18,27 +18,26 @@ typedef enum
 
 @interface IFExportPanelController : NSWindowController
 
-@property(nonatomic) BOOL clipToBounds;
-@property(nonatomic) BOOL transparency;
-
-@property(nonatomic) BOOL clipEnabled;
-@property(nonatomic) BOOL transparencyEnabled;
-@property(nonatomic) BOOL sizeEnabled;
 @property(nonatomic) BOOL showOnlySelected;
+@property(nonatomic) BOOL resolutionEnabled;
+@property(nonatomic) BOOL removeResolutionEnabled;
 
 @property(nonatomic) NSColor *foregroundColor;
 @property(nonatomic) NSColor *backgroundColor;
 @property(nonatomic) NSInteger baseSize;
 @property(nonatomic) NSInteger padding;
+@property(nonatomic) NSArray *resolutions;
 
 @property(nonatomic) NSInteger filetype;
 @property(nonatomic) id<IFIconCollectionModel> contents;
 
 @property(nonatomic, assign) IBOutlet NSOutlineView *selectionView;
+@property(nonatomic, assign) IBOutlet NSTableView *resolutionsView;
 
 + (instancetype)shared;
 
 - (void)showPanelFor:(NSWindow *)window;
 - (IBAction)panelAction:(id)sender;
+- (IBAction)editResolution:(id)sender;
 
 @end
