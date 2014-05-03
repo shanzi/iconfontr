@@ -26,6 +26,7 @@
     }
     [IFGlyphView drawPath:path
                   inFrame:cellFrame
+                 fitScale:YES
                     color:[NSColor blackColor]];
   }
 }

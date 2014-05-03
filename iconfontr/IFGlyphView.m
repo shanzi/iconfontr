@@ -11,7 +11,7 @@
 
 @implementation IFGlyphView
 
-+ (void)drawPath:(NSBezierPath *)path inFrame:(NSRect)frame color:(NSColor *)color
++ (void)drawPath:(NSBezierPath *)path inFrame:(NSRect)frame fitScale:(BOOL)fitScale color:(NSColor *)color
 {
   [NSGraphicsContext saveGraphicsState];
   
@@ -20,10 +20,10 @@
   [transform translateXBy:NSMidX(frame) yBy:NSMidY(frame)];
   [transform concat];
   
-  CGFloat size = MIN(frame.size.width, frame.size.height);
-  if (size<=48) {
+  if (fitScale) {
+    CGFloat size = MIN(frame.size.width, frame.size.height);
     NSAffineTransform *scaleTransfrom = [NSAffineTransform transform];
-    [scaleTransfrom scaleBy:size/48];
+    [scaleTransfrom scaleBy:size/48.0];
     [scaleTransfrom concat];
   }
   
@@ -53,7 +53,7 @@
     [border fill];
   }
   
-  [IFGlyphView drawPath:_bezierPath inFrame:dirtyRect color:_color];
+  [IFGlyphView drawPath:_bezierPath inFrame:dirtyRect fitScale:NO color:_color];
 }
 
 @end

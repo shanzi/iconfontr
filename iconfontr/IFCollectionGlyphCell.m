@@ -67,6 +67,7 @@
 {
   IFGlyphView *contentView = (IFGlyphView *)self.contentView;
   contentView.color = color;
+  [contentView setNeedsDisplay:YES];
 }
 
 @end

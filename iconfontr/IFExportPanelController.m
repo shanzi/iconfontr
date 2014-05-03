@@ -9,10 +9,19 @@
 #import "IFExportPanelController.h"
 #import "IFGlyphView.h"
 #import "IFFontGlyphModel.h"
+#import "IFProgressPanel.h"
+#import "NSBezierPath+SVGPathString.h"
 
 static IFExportPanelController *shared;
 
 @interface IFExportPanelController ()<NSOutlineViewDataSource, NSTableViewDataSource, NSTableViewDelegate>
+{
+  NSWindow *_modalWindow;
+  NSDictionary *_saveTask;
+  NSOperationQueue *_saveQueue;
+  IFProgressPanel *_progressPanel;
+  NSArray *_resolutionPreset;
+}
 
 @end
 
@@ -30,11 +39,13 @@ static IFExportPanelController *shared;
 {
   self = [super init];
   if (self) {
-    self.backgroundColor = [NSColor whiteColor];
+    self.color = [NSColor blackColor];
     self.baseSize = 64;
     self.padding = 0;
     self.filetype = IFSVGFileType;
     self.showOnlySelected = YES;
+    _saveQueue = [[NSOperationQueue alloc] init];
+    _progressPanel = [[IFProgressPanel alloc] init];
   }
   return self;
 }
@@ -47,24 +58,17 @@ static IFExportPanelController *shared;
 - (void)showPanelFor:(NSWindow *)window
 {
   if(self.window==nil) [self loadWindow];
-  
-  [NSApp beginSheet:self.window
-     modalForWindow:window
-      modalDelegate:self
-     didEndSelector:@selector(didEndSheet:returnCode:contextInfo:)
-        contextInfo:nil];
-}
-
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-  [sheet orderOut:nil];
+  _modalWindow = window;
+  [_modalWindow beginSheet:self.window
+        completionHandler:^(NSModalResponse returnCode) {
+          [self.window orderOut:nil];
+        }];
 }
 
 - (void)setFiletype:(NSInteger)filetype
 {
   _filetype = filetype;
   switch (filetype) {
-    case IFJPEGFileType:
     case IFPNGFileType:
       self.resolutionEnabled = YES;
       break;
@@ -76,15 +80,14 @@ static IFExportPanelController *shared;
   }
 }
 
+
 - (void)panelAction:(id)sender
 {
   if ([sender tag]==1) {
-    [NSApp endSheet:self.window
-         returnCode:NSFileHandlingPanelOKButton];
+    [self output];
   }
   else {
-    [NSApp endSheet:self.window
-         returnCode:NSFileHandlingPanelCancelButton];
+    [_modalWindow endSheet:self.window];
   }
 }
 
@@ -98,6 +101,22 @@ static IFExportPanelController *shared;
 {
   _showOnlySelected = showOnlySelected;
   [_selectionView reloadData];
+}
+
+- (void)setResolutionPresetTag:(NSInteger)resolutionPresetTag
+{
+  _resolutionPresetTag = resolutionPresetTag;
+  if (_resolutionPresetTag>0) {
+    if (_resolutionPreset==nil) {
+      NSURL *presetURL = [[NSBundle mainBundle] URLForResource:@"resolution-preset"
+                                                 withExtension:@"plist"];
+      _resolutionPreset = [NSArray arrayWithContentsOfURL:presetURL];
+    }
+    NSMutableArray *resolutions =
+    [[NSMutableArray alloc] initWithArray:[_resolutionPreset objectAtIndex:resolutionPresetTag-1]];
+    _resolutions = resolutions;
+    [_resolutionsView reloadData];
+  }
 }
 
 - (NSArray *)resolutions
@@ -117,6 +136,7 @@ static IFExportPanelController *shared;
 
 - (void)editResolution:(id)sender{
   NSInteger selectedRow = [_resolutionsView selectedRow];
+  self.resolutionPresetTag = 0;
   if ([sender tag]==0) {
     NSDictionary *resolution = [_resolutions lastObject];
     NSString *suffix = [resolution objectForKey:@"suffix"];
@@ -289,4 +309,178 @@ static IFExportPanelController *shared;
   self.removeResolutionEnabled = [_resolutionsView selectedRow]>=0 && [_resolutions count]>1;
 }
 
+#pragma mark - Output
+- (NSArray *)collectIconsToSave
+{
+  NSMutableArray *iconsToSave = [[NSMutableArray alloc] init];
+  for (id<IFIconSectionModel> icons in [_contents sections]) {
+    [iconsToSave addObjectsFromArray:[icons selectedIcons]];
+  }
+  return iconsToSave;
+}
+
+- (void)output
+{
+  NSArray *iconsToSave = [self collectIconsToSave];
+  if ([iconsToSave count]==0) {
+    NSAlert *alert = [NSAlert alertWithMessageText:@"No icons to Export"
+                                     defaultButton:@"Dismiss"
+                                   alternateButton:nil
+                                       otherButton:nil
+                         informativeTextWithFormat:@"Please select one or more icons and resolutions to export"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert beginSheetModalForWindow:self.window
+                  completionHandler:nil];
+    return;
+  }
+  else if ([iconsToSave count]==1 && (_filetype==IFSVGFileType || [_resolutions count]==1)) {
+    [self saveSingle:[iconsToSave firstObject]];
+  }
+  else {
+    [self saveMultiple:iconsToSave];
+  }
+}
+
+- (void)saveSingle:(id<IFIconModel>)icon
+{
+  NSSavePanel *savePanel = [NSSavePanel savePanel];
+  savePanel.allowedFileTypes = @[(_filetype==IFSVGFileType ? @"svg" : @"png")];
+  savePanel.canCreateDirectories = YES;
+  [_saveQueue setSuspended:YES];
+  [savePanel beginSheetModalForWindow:self.window
+                    completionHandler:^(NSInteger result) {
+                      if (result==NSFileHandlingPanelCancelButton) return;
+                      [_saveQueue addOperationWithBlock:^{
+                        [self saveIcon:icon resolution:[self.resolutions lastObject] url:savePanel.URL];
+                      }];
+                    }];
+}
+
+- (void)saveMultiple:(NSArray *)icons
+{
+  NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+  openPanel.title = @"Select Directory to Export Multitple Icons";
+  openPanel.allowedFileTypes = nil;
+  openPanel.canChooseDirectories = YES;
+  openPanel.allowsMultipleSelection = NO;
+  openPanel.canCreateDirectories = YES;
+  [_saveQueue setSuspended:YES];
+  [openPanel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+    if (result==NSFileHandlingPanelCancelButton) return;
+    [_saveQueue addOperationWithBlock:^{
+      [self saveIcons:icons toDirectoryURL:openPanel.URL];
+    }];
+  }];
+}
+
+- (BOOL)saveIcon:(id<IFIconModel>)icon resolution:(NSDictionary *)resolution url:(NSURL *)url
+{
+  NSError *err = nil;
+  BOOL success = NO;
+  if (_filetype==IFSVGFileType) {
+    NSBezierPath *path = [icon bezierPath];
+    NSString *color = [NSBezierPath SVGColorStringWithColor:_color];
+    NSString *svgText = [path SVGTextWithWidth:nil height:nil canvasStyle:nil pathStyle:color];
+    success = [svgText writeToURL:url
+                       atomically:YES
+                         encoding:NSUTF8StringEncoding
+                            error:&err];
+    
+  }
+  else {
+    NSInteger width = [[resolution objectForKey:@"width"] integerValue];
+    NSInteger height = [[resolution objectForKey:@"height"] integerValue];
+    NSInteger padding = [[resolution objectForKey:@"padding"] integerValue];
+    NSData *data = [self PNGImageDataForPath:[icon bezierPath]
+                                       width:width
+                                      height:height
+                                     padding:padding];
+    success = [data writeToURL:url options:NSAtomicWrite error:&err];
+  }
+  if (err){
+    [_saveQueue setSuspended:YES];
+    [_saveQueue addOperationWithBlock:^{
+      NSAlert *errorAlert = [NSAlert alertWithError:err];
+      [errorAlert beginSheetModalForWindow:self.window
+                         completionHandler:nil];
+    }];
+  }
+  return success;
+}
+
+- (void)saveIcons:(NSArray *)icons toDirectoryURL:(NSURL *)url
+{
+  _progressPanel.title = @"Exporting Icons";
+  _progressPanel.value = 0;
+  
+  [self.window beginSheet:_progressPanel
+        completionHandler:nil];
+  
+  double singleTaskAmount = 0;
+  if (_filetype==IFSVGFileType) {
+    singleTaskAmount = 100.0/[icons count];
+  }
+  else {
+    singleTaskAmount = 100.0/([icons count] * [_resolutions count]);
+  }
+  
+  NSInteger unamedCount = 0;
+  for (id<IFIconModel> icon in icons) {
+    if (_progressPanel.hasCanceled) break;
+    NSString *name = [icon name];
+    
+    if ([name length]==0)
+      name = [NSString stringWithFormat:@"unamed-%ld", (++unamedCount)];
+    
+    if (_filetype==IFSVGFileType) {
+      name = [name stringByAppendingString:@".svg"];
+      
+      NSURL *fileURL = [NSURL URLWithString:name relativeToURL:url];
+      if ([self saveIcon:icon resolution:nil url:fileURL]) _progressPanel.value+=singleTaskAmount;
+      else break;
+    }
+    else {
+      for(NSDictionary *resolution in self.resolutions) {
+        NSString *filename = nil;
+        NSString *suffix = [resolution objectForKey:@"suffix"];
+        if (suffix) filename = [name stringByAppendingString:suffix];
+        filename = [filename stringByAppendingString:@".png"];
+        NSURL *fileURL = [NSURL URLWithString:filename relativeToURL:url];
+        if ([self saveIcon:icon resolution:resolution url:fileURL]) _progressPanel.value+=singleTaskAmount;
+        else break;
+      }
+    }
+  }
+  [NSThread sleepForTimeInterval:1.0];
+  [self.window endSheet:_progressPanel];
+  [_progressPanel orderOut:nil];
+}
+
+- (NSData *)PNGImageDataForPath:(NSBezierPath *)path width:(NSInteger)width height:(NSInteger)height padding:(NSInteger)padding
+{
+  NSRect frame = NSMakeRect(padding, padding, width-padding*2, height-padding*2);
+  NSBitmapImageRep *rep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL
+                                                                  pixelsWide:width
+                                                                  pixelsHigh:height
+                                                               bitsPerSample:8
+                                                             samplesPerPixel:4
+                                                                    hasAlpha:YES
+                                                                    isPlanar:NO
+                                                              colorSpaceName:NSCalibratedRGBColorSpace
+                                                                 bytesPerRow:8*width
+                                                                bitsPerPixel:32];
+
+  [NSGraphicsContext saveGraphicsState];
+  NSGraphicsContext *g = [NSGraphicsContext graphicsContextWithBitmapImageRep:rep];
+  [NSGraphicsContext setCurrentContext:g];
+  [IFGlyphView drawPath:path inFrame:frame fitScale:YES color:_color];
+  [NSGraphicsContext restoreGraphicsState];
+  return [rep representationUsingType:NSPNGFileType properties:nil];
+}
+
+- (void)windowDidEndSheet:(NSNotification *)notification
+{
+  NSLog(@"%@", notification);
+  [_saveQueue setSuspended:NO];
+}
 @end

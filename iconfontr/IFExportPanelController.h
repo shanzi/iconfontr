@@ -13,7 +13,6 @@ typedef enum
 {
   IFSVGFileType=0,
   IFPNGFileType,
-  IFJPEGFileType,
 } IFExportFileType;
 
 @interface IFExportPanelController : NSWindowController
@@ -22,12 +21,12 @@ typedef enum
 @property(nonatomic) BOOL resolutionEnabled;
 @property(nonatomic) BOOL removeResolutionEnabled;
 
-@property(nonatomic) NSColor *foregroundColor;
-@property(nonatomic) NSColor *backgroundColor;
+@property(nonatomic) NSColor *color;
 @property(nonatomic) NSInteger baseSize;
 @property(nonatomic) NSInteger padding;
 @property(nonatomic) NSArray *resolutions;
 
+@property(nonatomic) NSInteger resolutionPresetTag;
 @property(nonatomic) NSInteger filetype;
 @property(nonatomic) id<IFIconCollectionModel> contents;
 

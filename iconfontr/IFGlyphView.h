@@ -14,6 +14,6 @@
 @property(nonatomic) NSBezierPath *bezierPath;
 @property(nonatomic) NSColor *color;
 
-+ (void)drawPath:(NSBezierPath *)path inFrame:(NSRect)frame color:(NSColor *)color;
++ (void)drawPath:(NSBezierPath *)path inFrame:(NSRect)frame fitScale:(BOOL)fitScale color:(NSColor *)color;
 
 @end
