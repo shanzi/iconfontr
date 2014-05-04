@@ -125,7 +125,7 @@
     case 8:
       return [NSColor crayolaRedColor];
     default:
-      return [NSColor clearColor];
+      return [NSColor whiteColor];
   }
 }
 

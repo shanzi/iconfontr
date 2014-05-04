@@ -254,7 +254,6 @@ static IFExportPanelController *shared;
     }
   }
   else if ([[tableColumn identifier] isEqualToString:@"name"]) {
-    NSLog(@"%@", [item name]);
     return [item name];
   }
   else if ([[tableColumn identifier] isEqualToString:@"preview"]) {
@@ -380,7 +379,8 @@ static IFExportPanelController *shared;
   if (_filetype==IFSVGFileType) {
     NSBezierPath *path = [icon bezierPath];
     NSString *color = [NSBezierPath SVGColorStringWithColor:_color];
-    NSString *svgText = [path SVGTextWithWidth:nil height:nil canvasStyle:nil pathStyle:color];
+    NSString *pathStyle = [NSString stringWithFormat:@"fill:%@", color];
+    NSString *svgText = [path SVGTextWithWidth:nil height:nil canvasStyle:nil pathStyle:pathStyle];
     success = [svgText writeToURL:url
                        atomically:YES
                          encoding:NSUTF8StringEncoding
@@ -467,7 +467,7 @@ static IFExportPanelController *shared;
                                                                     hasAlpha:YES
                                                                     isPlanar:NO
                                                               colorSpaceName:NSCalibratedRGBColorSpace
-                                                                 bytesPerRow:8*width
+                                                                 bytesPerRow:0
                                                                 bitsPerPixel:32];
 
   [NSGraphicsContext saveGraphicsState];
@@ -480,7 +480,6 @@ static IFExportPanelController *shared;
 
 - (void)windowDidEndSheet:(NSNotification *)notification
 {
-  NSLog(@"%@", notification);
   [_saveQueue setSuspended:NO];
 }
 @end
