@@ -1,3 +1,4 @@
 pod 'JNWCollectionView', '~> 1.2'
 pod 'PXSourceList', '~> 2.0'
 pod 'NSColor-Crayola', '~> 1.0'
+pod 'zipzap', '~> 7.0'
