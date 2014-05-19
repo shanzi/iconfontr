@@ -4,16 +4,19 @@ PODS:
   - JNWScrollView (0.1)
   - NSColor-Crayola (1.0)
   - PXSourceList (2.0.2)
+  - zipzap (7.0)
 
 DEPENDENCIES:
   - JNWCollectionView (~> 1.2)
   - NSColor-Crayola (~> 1.0)
   - PXSourceList (~> 2.0)
+  - zipzap (~> 7.0)
 
 SPEC CHECKSUMS:
   JNWCollectionView: 23ada4986fd74b6f2c8bef5bc10a19943223464f
   JNWScrollView: 92930677ed5b91af03c72d8efb0283611374c1ec
   NSColor-Crayola: 4ce6313cd2ab3170bfb0f0e0964b31ac9b680b9e
   PXSourceList: 61176bace121d3d0572d57d5337ca19ea353967d
+  zipzap: 2cbbd2091857ff81218623a04d6d08556636da72
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1

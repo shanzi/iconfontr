@@ -30,3 +30,9 @@
 #define COCOAPODS_VERSION_MINOR_PXSourceList 0
 #define COCOAPODS_VERSION_PATCH_PXSourceList 2
 
+// zipzap
+#define COCOAPODS_POD_AVAILABLE_zipzap
+#define COCOAPODS_VERSION_MAJOR_zipzap 7
+#define COCOAPODS_VERSION_MINOR_zipzap 0
+#define COCOAPODS_VERSION_PATCH_zipzap 0
+

@@ -1,0 +1,2 @@
+PODS_ZIPZAP_OTHER_CPLUSPLUSFLAGS = -std=gnu++11 -stdlib=libc++
+PODS_ZIPZAP_OTHER_LDFLAGS = -lc++ -lz -framework Foundation
