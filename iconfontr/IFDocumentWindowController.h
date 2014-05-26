@@ -9,15 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "IFModelProtocol.h"
 @class IFMagnifyCollectionView;
-@class IFColorPicker;
 
 @interface IFDocumentWindowController : NSWindowController
 
 @property(assign) IBOutlet IFMagnifyCollectionView *collectionView;
-@property(assign) IBOutlet IFColorPicker *colorPicker;
 @property(nonatomic, weak) id<IFIconCollectionModel> content;
+@property(nonatomic) NSColor *color;
 
-- (IBAction)changeColor:(id)sender;
 - (IBAction)exportSelection:(id)sender;
+- (IBAction)toolbarAction:(id)sender;
 
 @end

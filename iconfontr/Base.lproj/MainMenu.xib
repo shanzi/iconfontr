@@ -631,9 +631,6 @@
                         <items>
                             <menuItem title="Icon Font Importer" id="sPJ-jo-zng">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="showWindow:" target="oii-O3-skp" id="ImZ-bS-RIr"/>
-                                </connections>
                             </menuItem>
                         </items>
                     </menu>
@@ -677,6 +674,5 @@
                 </menuItem>
             </items>
         </menu>
-        <customObject id="oii-O3-skp" customClass="IFIconImporterWindowController"/>
     </objects>
 </document>

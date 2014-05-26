@@ -9,14 +9,13 @@
 #import "IFDocumentWindowController.h"
 #import "IFMagnifyCollectionView.h"
 #import "IFCollectionGlyphCell.h"
-#import "IFColorPicker.h"
 #import "IFExportPanelController.h"
+#import "IFPropertyPopover.h"
 
 #import <JNWCollectionView.h>
 
-@interface IFDocumentWindowController ()<JNWCollectionViewDataSource, JNWCollectionViewDelegate>
+@interface IFDocumentWindowController ()<JNWCollectionViewDataSource, JNWCollectionViewDelegate, NSToolbarDelegate>
 {
-  NSColor *_foregroundColor;
 }
 
 @end
@@ -37,23 +36,59 @@
 - (void)windowDidLoad
 {
   [super windowDidLoad];
-  _colorPicker.pickedIndex = 0;
-  _foregroundColor = _colorPicker.foregroundColor;
+  [self bind:@"color"
+    toObject:[NSUserDefaults standardUserDefaults]
+ withKeyPath:@"color"
+     options:@{NSValueTransformerNameBindingOption:NSUnarchiveFromDataTransformerName}];
   _collectionView.dataSource = self;
   _collectionView.delegate = self;
   [_collectionView registerClass:[IFCollectionGlyphCell class] forCellWithReuseIdentifier:@"glyphCell"];
   [_collectionView reloadData];
 }
 
+- (void)close
+{
+  [self unbind:@"color"];
+  [super close];
+}
+
+#pragma mark - bindings
+- (void)setColor:(NSColor *)color
+{
+  _color = color;
+  NSArray *cells = [_collectionView visibleCells];
+  for (IFCollectionGlyphCell *cell in cells) {
+    cell.color = _color;
+  }
+  NSColor *transformed = [color colorUsingColorSpaceName:NSCalibratedWhiteColorSpace];
+  if (transformed.whiteComponent >= 0.95) {
+    _collectionView.backgroundColor = [NSColor colorWithCalibratedWhite:0.8 alpha:1.0];
+  }
+  else {
+    _collectionView.backgroundColor = [NSColor whiteColor];
+  }
+}
+
 #pragma mark - Actions
 
-- (void)changeColor:(id)sender
+- (void)toolbarAction:(id)sender
 {
-  _foregroundColor = _colorPicker.foregroundColor;
-  _collectionView.backgroundColor = _colorPicker.backgroundColor;
-  for (IFCollectionGlyphCell *view in [_collectionView.documentView subviews]) {
-    view.color = _foregroundColor;
-    [view setNeedsDisplay:YES];
+  NSInteger tag =[sender tag];
+  switch (tag) {
+    case 1:
+      // show panel
+      [IFPropertyPopover popWithIdentifier:[sender identifier] view:sender];
+      break;
+    case 2:
+    case 3:
+      [self.window.toolbar setSelectedItemIdentifier:[sender identifier]];
+      break;
+    case 4:
+      // show export menu
+      break;
+      
+    default:
+      break;
   }
 }
 
@@ -126,7 +161,7 @@
   id<IFIconSectionModel> section = [sections objectAtIndex:indexPath.jnw_section];
   id<IFIconModel> glyph = [[section icons] objectAtIndex:indexPath.jnw_item];
   glyphCell.content = glyph;
-  glyphCell.color = _foregroundColor;
+  glyphCell.color = _color;
   
   return glyphCell;
 }
@@ -135,5 +170,6 @@
 {
   return YES;
 }
+
 
 @end

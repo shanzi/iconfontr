@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522BF9A0193354A300546EEF /* IFPropertyPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 522BF99E193354A300546EEF /* IFPropertyPopover.m */; };
+		522BF9A1193354A300546EEF /* IFPropertyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 522BF99F193354A300546EEF /* IFPropertyView.xib */; };
 		52347305190BF81D0070B41A /* IFExportPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52347303190BF81D0070B41A /* IFExportPanelController.m */; };
 		52347306190BF81D0070B41A /* IFExportPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52347304190BF81D0070B41A /* IFExportPanel.xib */; };
 		526F294918FD2E9B00DAAFCF /* IFDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294818FD2E9B00DAAFCF /* IFDocumentWindowController.m */; };
 		526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */; };
 		527A391A190BA5B500F041FA /* NSBezierPath+SVGPathString.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */; };
 		527B07BE191529E7004B845A /* resolution-preset.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527B07BD191529E7004B845A /* resolution-preset.plist */; };
-		52B1471F192A2DB6004DE8F8 /* IFDropFileButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B1471E192A2DB6004DE8F8 /* IFDropFileButton.m */; };
-		52B3F4EE1900EFF800D53238 /* IFColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B3F4ED1900EFF800D53238 /* IFColorPicker.m */; };
 		52C35F551914B82100A1408D /* IFProgressPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C35F541914B82100A1408D /* IFProgressPanel.m */; };
 		52E8691D190FB82300E1C65A /* IFGlyphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E8691C190FB82300E1C65A /* IFGlyphView.m */; };
 		52E86925190FCB0700E1C65A /* IFFontGlyphModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E86924190FCB0700E1C65A /* IFFontGlyphModel.m */; };
@@ -28,13 +28,14 @@
 		52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A218F97E7D00E27B86 /* MainMenu.xib */; };
 		52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A518F97E7D00E27B86 /* Images.xcassets */; };
 		52EE31CE18F9977800E27B86 /* IFCollectionGlyphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31CD18F9977800E27B86 /* IFCollectionGlyphCell.m */; };
-		52F79167192A1871007262A0 /* IFIconImporterWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F79165192A1871007262A0 /* IFIconImporterWindowController.m */; };
-		52F79168192A1871007262A0 /* IFIconImporterWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52F79166192A1871007262A0 /* IFIconImporterWindowController.xib */; };
 		52F85C2318FD4A2100F42D76 /* IFCollectionGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */; };
 		8EE3D5A1536448EB95CF014A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F283762F9E844787A189F853 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		522BF99D193354A300546EEF /* IFPropertyPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFPropertyPopover.h; sourceTree = "<group>"; };
+		522BF99E193354A300546EEF /* IFPropertyPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFPropertyPopover.m; sourceTree = "<group>"; };
+		522BF99F193354A300546EEF /* IFPropertyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFPropertyView.xib; sourceTree = "<group>"; };
 		52347302190BF81D0070B41A /* IFExportPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFExportPanelController.h; sourceTree = "<group>"; };
 		52347303190BF81D0070B41A /* IFExportPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFExportPanelController.m; sourceTree = "<group>"; };
 		52347304190BF81D0070B41A /* IFExportPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFExportPanel.xib; sourceTree = "<group>"; };
@@ -45,10 +46,6 @@
 		527A3918190BA5B500F041FA /* NSBezierPath+SVGPathString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+SVGPathString.h"; sourceTree = "<group>"; };
 		527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+SVGPathString.m"; sourceTree = "<group>"; };
 		527B07BD191529E7004B845A /* resolution-preset.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "resolution-preset.plist"; sourceTree = "<group>"; };
-		52B1471D192A2DB6004DE8F8 /* IFDropFileButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFDropFileButton.h; sourceTree = "<group>"; };
-		52B1471E192A2DB6004DE8F8 /* IFDropFileButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFDropFileButton.m; sourceTree = "<group>"; };
-		52B3F4EC1900EFF800D53238 /* IFColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFColorPicker.h; sourceTree = "<group>"; };
-		52B3F4ED1900EFF800D53238 /* IFColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFColorPicker.m; sourceTree = "<group>"; };
 		52C35F531914B82100A1408D /* IFProgressPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFProgressPanel.h; sourceTree = "<group>"; };
 		52C35F541914B82100A1408D /* IFProgressPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFProgressPanel.m; sourceTree = "<group>"; };
 		52E8691B190FB82300E1C65A /* IFGlyphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFGlyphView.h; sourceTree = "<group>"; };
@@ -76,9 +73,6 @@
 		52EE31AC18F97E7E00E27B86 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		52EE31CC18F9977800E27B86 /* IFCollectionGlyphCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCollectionGlyphCell.h; sourceTree = "<group>"; };
 		52EE31CD18F9977800E27B86 /* IFCollectionGlyphCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCollectionGlyphCell.m; sourceTree = "<group>"; };
-		52F79164192A1871007262A0 /* IFIconImporterWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFIconImporterWindowController.h; sourceTree = "<group>"; };
-		52F79165192A1871007262A0 /* IFIconImporterWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFIconImporterWindowController.m; sourceTree = "<group>"; };
-		52F79166192A1871007262A0 /* IFIconImporterWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IFIconImporterWindowController.xib; sourceTree = "<group>"; };
 		52F85C2118FD4A2100F42D76 /* IFCollectionGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFCollectionGridLayout.h; sourceTree = "<group>"; };
 		52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFCollectionGridLayout.m; sourceTree = "<group>"; };
 		F283762F9E844787A189F853 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522BF99C1933547B00546EEF /* Property Panels */ = {
+			isa = PBXGroup;
+			children = (
+				522BF99D193354A300546EEF /* IFPropertyPopover.h */,
+				522BF99E193354A300546EEF /* IFPropertyPopover.m */,
+				522BF99F193354A300546EEF /* IFPropertyView.xib */,
+			);
+			name = "Property Panels";
+			sourceTree = "<group>";
+		};
 		52347301190BF79B0070B41A /* Export Window */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +116,7 @@
 		526F294A18FD3D2A00DAAFCF /* Document Window */ = {
 			isa = PBXGroup;
 			children = (
+				522BF99C1933547B00546EEF /* Property Panels */,
 				526F294B18FD3D4100DAAFCF /* IFMagnifyCollectionView */,
 				52EE319F18F97E7D00E27B86 /* IFDocumentWindow.xib */,
 				526F294718FD2E9B00DAAFCF /* IFDocumentWindowController.h */,
@@ -127,8 +132,6 @@
 				526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */,
 				52F85C2118FD4A2100F42D76 /* IFCollectionGridLayout.h */,
 				52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */,
-				52B3F4EC1900EFF800D53238 /* IFColorPicker.h */,
-				52B3F4ED1900EFF800D53238 /* IFColorPicker.m */,
 			);
 			name = IFMagnifyCollectionView;
 			sourceTree = "<group>";
@@ -151,7 +154,7 @@
 			name = "Progress Panel";
 			sourceTree = "<group>";
 		};
-		52E8691A190FB65500E1C65A /* Glyphs Cell and View */ = {
+		52E8691A190FB65500E1C65A /* Views and Cells */ = {
 			isa = PBXGroup;
 			children = (
 				52EE31CC18F9977800E27B86 /* IFCollectionGlyphCell.h */,
@@ -161,7 +164,7 @@
 				52E869261910E1A200E1C65A /* IFTableGlyphCell.h */,
 				52E869271910E1A200E1C65A /* IFTableGlyphCell.m */,
 			);
-			name = "Glyphs Cell and View";
+			name = "Views and Cells";
 			sourceTree = "<group>";
 		};
 		52E86921190FC56400E1C65A /* Icon Models */ = {
@@ -216,12 +219,11 @@
 		52EE319018F97E7D00E27B86 /* iconfontr */ = {
 			isa = PBXGroup;
 			children = (
-				52F7915E192A159F007262A0 /* Icon Font Importer Window */,
-				52C35F521914B75400A1408D /* Progress Panel */,
 				52E86921190FC56400E1C65A /* Icon Models */,
-				52E8691A190FB65500E1C65A /* Glyphs Cell and View */,
-				52347301190BF79B0070B41A /* Export Window */,
+				52E8691A190FB65500E1C65A /* Views and Cells */,
 				527A3916190BA54900F041FA /* SVG */,
+				52C35F521914B75400A1408D /* Progress Panel */,
+				52347301190BF79B0070B41A /* Export Window */,
 				526F294A18FD3D2A00DAAFCF /* Document Window */,
 				52EE319C18F97E7D00E27B86 /* IFFontDocument.h */,
 				52EE319D18F97E7D00E27B86 /* IFFontDocument.m */,
@@ -242,18 +244,6 @@
 				52EE319918F97E7D00E27B86 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		52F7915E192A159F007262A0 /* Icon Font Importer Window */ = {
-			isa = PBXGroup;
-			children = (
-				52F79164192A1871007262A0 /* IFIconImporterWindowController.h */,
-				52F79165192A1871007262A0 /* IFIconImporterWindowController.m */,
-				52B1471D192A2DB6004DE8F8 /* IFDropFileButton.h */,
-				52B1471E192A2DB6004DE8F8 /* IFDropFileButton.m */,
-				52F79166192A1871007262A0 /* IFIconImporterWindowController.xib */,
-			);
-			name = "Icon Font Importer Window";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,9 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F79168192A1871007262A0 /* IFIconImporterWindowController.xib in Resources */,
 				52EE319518F97E7D00E27B86 /* InfoPlist.strings in Resources */,
 				52347306190BF81D0070B41A /* IFExportPanel.xib in Resources */,
+				522BF9A1193354A300546EEF /* IFPropertyView.xib in Resources */,
 				52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */,
 				52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */,
 				52EE31A118F97E7D00E27B86 /* IFDocumentWindow.xib in Resources */,
@@ -390,12 +380,10 @@
 				52EE31CE18F9977800E27B86 /* IFCollectionGlyphCell.m in Sources */,
 				526F294918FD2E9B00DAAFCF /* IFDocumentWindowController.m in Sources */,
 				52E86925190FCB0700E1C65A /* IFFontGlyphModel.m in Sources */,
-				52B1471F192A2DB6004DE8F8 /* IFDropFileButton.m in Sources */,
-				52F79167192A1871007262A0 /* IFIconImporterWindowController.m in Sources */,
 				52C35F551914B82100A1408D /* IFProgressPanel.m in Sources */,
 				52EE319718F97E7D00E27B86 /* main.m in Sources */,
+				522BF9A0193354A300546EEF /* IFPropertyPopover.m in Sources */,
 				52347305190BF81D0070B41A /* IFExportPanelController.m in Sources */,
-				52B3F4EE1900EFF800D53238 /* IFColorPicker.m in Sources */,
 				526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */,
 				52E8691D190FB82300E1C65A /* IFGlyphView.m in Sources */,
 				527A391A190BA5B500F041FA /* NSBezierPath+SVGPathString.m in Sources */,
