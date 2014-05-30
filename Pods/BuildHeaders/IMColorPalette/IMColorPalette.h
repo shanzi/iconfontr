@@ -1,0 +1,1 @@
+../../IMColorPalette/src/IMColorPalette.h

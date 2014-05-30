@@ -6,6 +6,12 @@
 // project.
 
 
+// IMColorPalette
+#define COCOAPODS_POD_AVAILABLE_IMColorPalette
+#define COCOAPODS_VERSION_MAJOR_IMColorPalette 0
+#define COCOAPODS_VERSION_MINOR_IMColorPalette 0
+#define COCOAPODS_VERSION_PATCH_IMColorPalette 1
+
 // JNWCollectionView
 #define COCOAPODS_POD_AVAILABLE_JNWCollectionView
 #define COCOAPODS_VERSION_MAJOR_JNWCollectionView 1
