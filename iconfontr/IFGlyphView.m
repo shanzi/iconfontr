@@ -39,7 +39,8 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
   [super drawRect:dirtyRect];
-  
+  CGContextRef context =[[NSGraphicsContext currentContext] graphicsPort];
+  CGContextClearRect(context, dirtyRect);
   // selection
   if (self.selected) {
     NSRect borderRect = NSMakeRect(kGlyphViewPadding,

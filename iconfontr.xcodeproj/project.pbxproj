@@ -15,6 +15,10 @@
 		526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */; };
 		527A391A190BA5B500F041FA /* NSBezierPath+SVGPathString.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */; };
 		527B07BE191529E7004B845A /* resolution-preset.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527B07BD191529E7004B845A /* resolution-preset.plist */; };
+		52A1C2B4193868D80013F676 /* IFColorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C2B3193868D80013F676 /* IFColorPanelController.m */; };
+		52A1C2B7193868F70013F676 /* IFSizePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C2B6193868F70013F676 /* IFSizePanelController.m */; };
+		52A1C2BA1938690C0013F676 /* IFResolutionsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C2B91938690C0013F676 /* IFResolutionsPanelController.m */; };
+		52A1C2BD193869260013F676 /* IFInfoPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C2BC193869260013F676 /* IFInfoPanelController.m */; };
 		52C35F551914B82100A1408D /* IFProgressPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C35F541914B82100A1408D /* IFProgressPanel.m */; };
 		52E8691D190FB82300E1C65A /* IFGlyphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E8691C190FB82300E1C65A /* IFGlyphView.m */; };
 		52E86925190FCB0700E1C65A /* IFFontGlyphModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E86924190FCB0700E1C65A /* IFFontGlyphModel.m */; };
@@ -46,6 +50,14 @@
 		527A3918190BA5B500F041FA /* NSBezierPath+SVGPathString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+SVGPathString.h"; sourceTree = "<group>"; };
 		527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+SVGPathString.m"; sourceTree = "<group>"; };
 		527B07BD191529E7004B845A /* resolution-preset.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "resolution-preset.plist"; sourceTree = "<group>"; };
+		52A1C2B2193868D80013F676 /* IFColorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFColorPanelController.h; sourceTree = "<group>"; };
+		52A1C2B3193868D80013F676 /* IFColorPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFColorPanelController.m; sourceTree = "<group>"; };
+		52A1C2B5193868F70013F676 /* IFSizePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSizePanelController.h; sourceTree = "<group>"; };
+		52A1C2B6193868F70013F676 /* IFSizePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFSizePanelController.m; sourceTree = "<group>"; };
+		52A1C2B81938690C0013F676 /* IFResolutionsPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFResolutionsPanelController.h; sourceTree = "<group>"; };
+		52A1C2B91938690C0013F676 /* IFResolutionsPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFResolutionsPanelController.m; sourceTree = "<group>"; };
+		52A1C2BB193869260013F676 /* IFInfoPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFInfoPanelController.h; sourceTree = "<group>"; };
+		52A1C2BC193869260013F676 /* IFInfoPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFInfoPanelController.m; sourceTree = "<group>"; };
 		52C35F531914B82100A1408D /* IFProgressPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFProgressPanel.h; sourceTree = "<group>"; };
 		52C35F541914B82100A1408D /* IFProgressPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFProgressPanel.m; sourceTree = "<group>"; };
 		52E8691B190FB82300E1C65A /* IFGlyphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFGlyphView.h; sourceTree = "<group>"; };
@@ -95,6 +107,7 @@
 		522BF99C1933547B00546EEF /* Property Panels */ = {
 			isa = PBXGroup;
 			children = (
+				52A1C2B1193868920013F676 /* Panel Controllers */,
 				522BF99D193354A300546EEF /* IFPropertyPopover.h */,
 				522BF99E193354A300546EEF /* IFPropertyPopover.m */,
 				522BF99F193354A300546EEF /* IFPropertyView.xib */,
@@ -143,6 +156,21 @@
 				527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */,
 			);
 			name = SVG;
+			sourceTree = "<group>";
+		};
+		52A1C2B1193868920013F676 /* Panel Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				52A1C2B2193868D80013F676 /* IFColorPanelController.h */,
+				52A1C2B3193868D80013F676 /* IFColorPanelController.m */,
+				52A1C2B5193868F70013F676 /* IFSizePanelController.h */,
+				52A1C2B6193868F70013F676 /* IFSizePanelController.m */,
+				52A1C2B81938690C0013F676 /* IFResolutionsPanelController.h */,
+				52A1C2B91938690C0013F676 /* IFResolutionsPanelController.m */,
+				52A1C2BB193869260013F676 /* IFInfoPanelController.h */,
+				52A1C2BC193869260013F676 /* IFInfoPanelController.m */,
+			);
+			name = "Panel Controllers";
 			sourceTree = "<group>";
 		};
 		52C35F521914B75400A1408D /* Progress Panel */ = {
@@ -379,6 +407,9 @@
 				52E869281910E1A200E1C65A /* IFTableGlyphCell.m in Sources */,
 				52EE31CE18F9977800E27B86 /* IFCollectionGlyphCell.m in Sources */,
 				526F294918FD2E9B00DAAFCF /* IFDocumentWindowController.m in Sources */,
+				52A1C2BD193869260013F676 /* IFInfoPanelController.m in Sources */,
+				52A1C2BA1938690C0013F676 /* IFResolutionsPanelController.m in Sources */,
+				52A1C2B4193868D80013F676 /* IFColorPanelController.m in Sources */,
 				52E86925190FCB0700E1C65A /* IFFontGlyphModel.m in Sources */,
 				52C35F551914B82100A1408D /* IFProgressPanel.m in Sources */,
 				52EE319718F97E7D00E27B86 /* main.m in Sources */,
@@ -388,6 +419,7 @@
 				52E8691D190FB82300E1C65A /* IFGlyphView.m in Sources */,
 				527A391A190BA5B500F041FA /* NSBezierPath+SVGPathString.m in Sources */,
 				52F85C2318FD4A2100F42D76 /* IFCollectionGridLayout.m in Sources */,
+				52A1C2B7193868F70013F676 /* IFSizePanelController.m in Sources */,
 				52EE319E18F97E7D00E27B86 /* IFFontDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,16 @@
 
 #import "IFPropertyPopover.h"
 
+#import "IFColorPanelController.h"
+#import "IFSizePanelController.h"
+#import "IFResolutionsPanelController.h"
+#import "IFInfoPanelController.h"
+
 static IFPropertyPopover *shared;
 
 @interface IFPropertyPopover () <NSPopoverDelegate>
 {
-  NSArray *_viewArray;
+  NSArray *_controllersArray;
   NSMutableDictionary *_popovers;
 }
 
@@ -33,32 +38,23 @@ static IFPropertyPopover *shared;
   [[IFPropertyPopover popover] showPopoverWithIdentifier:identifier ofView:view];
 }
 
-- (void)loadView
+- (void)loadNib
 {
-  if (_viewArray==nil) {
-    NSArray *array;
-    [[NSBundle mainBundle] loadNibNamed:@"IFPropertyView"
-                                  owner:self
-                        topLevelObjects:&array];
-    _viewArray = array;
+  if (_colorPanelController && _sizePanelController && _resolutionsPanelController && _infoPanelController) {
+    return;
   }
-}
-
-- (NSView *)viewWithIdentifier:(NSString *)identifier
-{
-  [self loadView];
-  for (NSView *view in _viewArray) {
-    if ([view isKindOfClass:[NSView class]] && [[view identifier] isEqualToString:identifier])
-      return view;
-  }
-  return nil;
+  
+  [[NSBundle mainBundle] loadNibNamed:@"IFPropertyView" owner:self topLevelObjects:nil];
 }
 
 - (NSViewController *)viewControllerWithIdentifier:(NSString *)identifier
 {
-  NSViewController *controller = [[NSViewController alloc] init];
-  controller.view = [self viewWithIdentifier:identifier];
-  return controller;
+  [self loadNib];
+  if ([identifier isEqualToString:@"color"]) return _colorPanelController;
+  else if ([identifier isEqualToString:@"size"]) return _sizePanelController;
+  else if ([identifier isEqualToString:@"resolutions"]) return _resolutionsPanelController;
+  else if ([identifier isEqualToString:@"info"]) return _infoPanelController;
+  return nil;
 }
 
 - (NSPopover *)popoverWithIdentifier:(NSString *)identifier

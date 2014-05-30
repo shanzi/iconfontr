@@ -56,9 +56,9 @@
 - (void)setColor:(NSColor *)color
 {
   _color = color;
-  NSArray *cells = [_collectionView visibleCells];
-  for (IFCollectionGlyphCell *cell in cells) {
-    cell.color = _color;
+  NSArray *cells = [_collectionView.documentView subviews];
+  for (id cell in cells) {
+    if ([cell respondsToSelector:@selector(setColor:)]) [cell setColor:_color];
   }
   NSColor *transformed = [color colorUsingColorSpaceName:NSCalibratedWhiteColorSpace];
   if (transformed.whiteComponent >= 0.95) {
@@ -156,7 +156,6 @@
 - (JNWCollectionViewCell *)collectionView:(JNWCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
   IFCollectionGlyphCell *glyphCell = (IFCollectionGlyphCell *)[collectionView dequeueReusableCellWithIdentifier:@"glyphCell"];
-  
   NSArray *sections = [_content sections];
   id<IFIconSectionModel> section = [sections objectAtIndex:indexPath.jnw_section];
   id<IFIconModel> glyph = [[section icons] objectAtIndex:indexPath.jnw_item];

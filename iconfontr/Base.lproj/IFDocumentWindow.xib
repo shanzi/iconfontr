@@ -17,7 +17,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="133" y="235" width="507" height="413"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <value key="minSize" type="size" width="400" height="200"/>
             <view key="contentView" id="gIp-Ho-8D9">
                 <rect key="frame" x="0.0" y="0.0" width="507" height="413"/>
@@ -44,7 +44,7 @@
                     <toolbarItem implicitItemIdentifier="B74DFCE5-531A-48E9-A6D5-C318A709DE76" label="color" paletteLabel="color" tag="1" id="GKJ-5X-B15">
                         <nil key="toolTip"/>
                         <size key="minSize" width="40" height="18"/>
-                        <size key="maxSize" width="50" height="25"/>
+                        <size key="maxSize" width="54" height="25"/>
                         <button key="view" identifier="color" tag="1" id="gS2-Sd-rIp">
                             <rect key="frame" x="0.0" y="14" width="54" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -59,7 +59,7 @@
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="1D068F63-9751-40D4-AC4F-DD0FD3F6B8E5" label="size" paletteLabel="size" tag="1" id="2Px-6y-cTR">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="50" height="18"/>
+                        <size key="minSize" width="42" height="18"/>
                         <size key="maxSize" width="50" height="25"/>
                         <button key="view" identifier="size" tag="1" id="5c3-mR-Nb0">
                             <rect key="frame" x="0.0" y="14" width="42" height="25"/>

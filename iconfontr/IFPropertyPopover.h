@@ -8,7 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class IFColorPanelController, IFSizePanelController, IFResolutionsPanelController, IFInfoPanelController;
+
 @interface IFPropertyPopover : NSObject
+
+@property (nonatomic) IBOutlet IFColorPanelController *colorPanelController;
+@property (nonatomic) IBOutlet IFSizePanelController *sizePanelController;
+@property (nonatomic) IBOutlet IFResolutionsPanelController *resolutionsPanelController;
+@property (nonatomic) IBOutlet IFInfoPanelController *infoPanelController;
 
 + (instancetype)popover;
 + (void)popWithIdentifier:(NSString *)identifier view:(NSView *)view;

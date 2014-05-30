@@ -374,7 +374,9 @@ typedef enum{
 - (void)changeColor:(id)sender
 {
   if (_selectedIndex>=0 && _selectedIndex<[_colors count] && _colorPanel.color) {
+    [self willChangeValueForKey:@"color"];
     [_colors setObject:_colorPanel.color atIndexedSubscript:_selectedIndex];
+    [self didChangeValueForKey:@"color"];
     [self setNeedsDisplayInRect:[self rectForIndex:_selectedIndex]];
     [self sendAction:_action to:_target];
   }
