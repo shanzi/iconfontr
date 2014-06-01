@@ -14,7 +14,7 @@
 		526F294918FD2E9B00DAAFCF /* IFDocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294818FD2E9B00DAAFCF /* IFDocumentWindowController.m */; };
 		526F294E18FD3D8000DAAFCF /* IFMagnifyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */; };
 		527A391A190BA5B500F041FA /* NSBezierPath+SVGPathString.m in Sources */ = {isa = PBXBuildFile; fileRef = 527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */; };
-		527B07BE191529E7004B845A /* resolution-preset.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527B07BD191529E7004B845A /* resolution-preset.plist */; };
+		527B07BE191529E7004B845A /* resolutions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 527B07BD191529E7004B845A /* resolutions.plist */; };
 		52A1C2B4193868D80013F676 /* IFColorPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C2B3193868D80013F676 /* IFColorPanelController.m */; };
 		52A1C2B7193868F70013F676 /* IFSizePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C2B6193868F70013F676 /* IFSizePanelController.m */; };
 		52A1C2BA1938690C0013F676 /* IFResolutionsPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1C2B91938690C0013F676 /* IFResolutionsPanelController.m */; };
@@ -28,8 +28,6 @@
 		52EE319718F97E7D00E27B86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319618F97E7D00E27B86 /* main.m */; };
 		52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319918F97E7D00E27B86 /* Credits.rtf */; };
 		52EE319E18F97E7D00E27B86 /* IFFontDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE319D18F97E7D00E27B86 /* IFFontDocument.m */; };
-		52EE31A118F97E7D00E27B86 /* IFDocumentWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE319F18F97E7D00E27B86 /* IFDocumentWindow.xib */; };
-		52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A218F97E7D00E27B86 /* MainMenu.xib */; };
 		52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52EE31A518F97E7D00E27B86 /* Images.xcassets */; };
 		52EE31CE18F9977800E27B86 /* IFCollectionGlyphCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52EE31CD18F9977800E27B86 /* IFCollectionGlyphCell.m */; };
 		52F85C2318FD4A2100F42D76 /* IFCollectionGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F85C2218FD4A2100F42D76 /* IFCollectionGridLayout.m */; };
@@ -49,7 +47,7 @@
 		526F294D18FD3D8000DAAFCF /* IFMagnifyCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFMagnifyCollectionView.m; sourceTree = "<group>"; };
 		527A3918190BA5B500F041FA /* NSBezierPath+SVGPathString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBezierPath+SVGPathString.h"; sourceTree = "<group>"; };
 		527A3919190BA5B500F041FA /* NSBezierPath+SVGPathString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBezierPath+SVGPathString.m"; sourceTree = "<group>"; };
-		527B07BD191529E7004B845A /* resolution-preset.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "resolution-preset.plist"; sourceTree = "<group>"; };
+		527B07BD191529E7004B845A /* resolutions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = resolutions.plist; sourceTree = "<group>"; };
 		52A1C2B2193868D80013F676 /* IFColorPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFColorPanelController.h; sourceTree = "<group>"; };
 		52A1C2B3193868D80013F676 /* IFColorPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFColorPanelController.m; sourceTree = "<group>"; };
 		52A1C2B5193868F70013F676 /* IFSizePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFSizePanelController.h; sourceTree = "<group>"; };
@@ -121,7 +119,7 @@
 				52347302190BF81D0070B41A /* IFExportPanelController.h */,
 				52347303190BF81D0070B41A /* IFExportPanelController.m */,
 				52347304190BF81D0070B41A /* IFExportPanel.xib */,
-				527B07BD191529E7004B845A /* resolution-preset.plist */,
+				527B07BD191529E7004B845A /* resolutions.plist */,
 			);
 			name = "Export Window";
 			sourceTree = "<group>";
@@ -345,9 +343,7 @@
 				522BF9A1193354A300546EEF /* IFPropertyView.xib in Resources */,
 				52EE31A618F97E7D00E27B86 /* Images.xcassets in Resources */,
 				52EE319B18F97E7D00E27B86 /* Credits.rtf in Resources */,
-				52EE31A118F97E7D00E27B86 /* IFDocumentWindow.xib in Resources */,
-				52EE31A418F97E7D00E27B86 /* MainMenu.xib in Resources */,
-				527B07BE191529E7004B845A /* resolution-preset.plist in Resources */,
+				527B07BE191529E7004B845A /* resolutions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

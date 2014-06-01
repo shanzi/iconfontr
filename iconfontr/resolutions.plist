@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>iPhone App Icons</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>60</string>
+			<key>height</key>
+			<string>60</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina iPhone</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina iPhone</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>iPad App Icons</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>76</string>
+			<key>height</key>
+			<string>76</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina iPad</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina iPad</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>iOS Toolbar Icons</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>22</string>
+			<key>height</key>
+			<string>22</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina iPhone/iPad</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina iPhone/iPad</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>iOS Tabbar Icons</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>25</string>
+			<key>height</key>
+			<string>25</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina iPhone/iPad</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina iPhone/iPad</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>iPhone Setting Icons</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>29</string>
+			<key>height</key>
+			<string>29</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina iPhone</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina iPhone</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>iPad Setting Icons</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>50</string>
+			<key>height</key>
+			<string>50</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina iPad</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina iPad</string>
+			</dict>
+		</array>
+	</dict>
+	<dict/>
+	<dict>
+		<key>name</key>
+		<string>OSX Status Bar</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>22</string>
+			<key>height</key>
+			<string>22</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>OSX 16pt</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>16</string>
+			<key>height</key>
+			<string>16</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>OSX 32pt</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>32</string>
+			<key>height</key>
+			<string>32</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>OSX 64pt</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>64</string>
+			<key>height</key>
+			<string>64</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>OSX 128pt</string>
+		<key>base</key>
+		<dict>
+			<key>width</key>
+			<string>128</string>
+			<key>height</key>
+			<string>128</string>
+		</dict>
+		<key>scales</key>
+		<array>
+			<dict>
+				<key>scale</key>
+				<integer>1</integer>
+				<key>description</key>
+				<string>Non-retina</string>
+			</dict>
+			<dict>
+				<key>scale</key>
+				<integer>2</integer>
+				<key>description</key>
+				<string>Retina</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

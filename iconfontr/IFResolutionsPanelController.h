@@ -10,4 +10,11 @@
 
 @interface IFResolutionsPanelController : NSViewController
 
+@property(nonatomic) IBOutlet NSTableView *tableView;
+@property(nonatomic) IBOutlet NSButton *deleteButton;
+
+- (IBAction)listAction:(id)sender;
+- (IBAction)presetAction:(id)sender;
+- (IBAction)resolutionAction:(id)sender;
+
 @end

@@ -14,15 +14,26 @@
 
 @implementation IFSizePanelController
 
+- (void)awakeFromNib
+{
+  [super awakeFromNib];
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  if ([userDefaults boolForKey:@"square"]) {
+    [userDefaults bind:@"height" toObject:userDefaults withKeyPath:@"width" options:nil];
+  }
+  else {
+    [userDefaults unbind:@"height"];
+  }
+}
 
 - (void)lockStateChanged:(id)sender
 {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   if ([sender state] == NSOffState) {
-    [userDefaults bind:@"height" toObject:userDefaults withKeyPath:@"width" options:nil];
+    [userDefaults unbind:@"height"];
   }
   else {
-    [userDefaults unbind:@"height"];
+    [userDefaults bind:@"height" toObject:userDefaults withKeyPath:@"width" options:nil];
   }
 }
 
